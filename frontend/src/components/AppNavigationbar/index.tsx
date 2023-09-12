@@ -50,8 +50,6 @@ export const AppNavigationBar = () => {
                             <option>PHP</option>
                             <option>USD</option>
                             <option>EUR</option>
-                            <option></option>
-                            <option></option>
                         </select>
                     </div>
                 </div>
