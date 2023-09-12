@@ -8,12 +8,8 @@ type AppUserLayoutProps = {
 
 export const AppUserLayout = (props : AppUserLayoutProps) => {
     return (
-        <div className='h-screen border border-orange-400 flex flex-col'>
-            <div className='h-fit'>
-                <div>
-                    <AppNavigationBar/>
-                </div>
-            </div>
+        <div className='h-screen relative flex flex-col '>
+            <AppNavigationBar/>
             <div className='flex-1 '>
                 {props.children}
             </div>

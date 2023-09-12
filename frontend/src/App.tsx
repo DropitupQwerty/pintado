@@ -12,7 +12,9 @@ function App() {
 
     return  <React.Fragment>
         <ThemeProvider value={customTheme}>
-            <RouterProvider router={router} />
+            <div className='text-primary-black'>
+                <RouterProvider router={router} />
+            </div>
         </ThemeProvider>
     </React.Fragment>
   
