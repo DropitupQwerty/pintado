@@ -2,10 +2,10 @@ import React from 'react'
 import {AiOutlineUser , AiOutlineHeart , AiOutlineShoppingCart} from 'react-icons/ai'
 import {
     Navbar,
-    MobileNav,
     Button,
     IconButton,
-    Input
+    Input,
+    Collapse
 } from '@material-tailwind/react'
 import {FaBars} from 'react-icons/fa'
 import {BiX} from 'react-icons/bi'
@@ -89,7 +89,7 @@ export const AppNavigationBar = () => {
                         </div>
                     </div>
 
-                    <div className='flex items-center text-3xl '>
+                    <div className='flex items-center text-3xl'>
                         <div className='flex justify-center text-center border-r-2 px-3'><AiOutlineUser /></div>
                         <div className='flex justify-center text-center border-r-2 px-3'><AiOutlineHeart /></div>
                         <div className='flex justify-center text-center  px-3'><AiOutlineShoppingCart/></div>
@@ -119,12 +119,12 @@ export const AppNavigationBar = () => {
                 </div>
             </div>
 
-            <MobileNav open={openNav} >
+            <Collapse open={openNav} >
                 {NavList}
                 <Button variant="gradient" size="sm" fullWidth className="">
                     <span>Buy Now</span>
                 </Button>
-            </MobileNav>
+            </Collapse>
         </Navbar>
 
     )

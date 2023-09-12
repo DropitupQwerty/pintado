@@ -5,10 +5,11 @@ export default withMT({
     theme: {
         extend: {
             colors: {
+                'primary-white' : '#fff',
+                'secondary-white' : '#E5E5E5',
                 'primary-black' : '#333',
                 'primary-red' : '#E94444',
                 'primary-brown' : '#B56767',
-                'secondary-white' : '#E5E5E5'
             }
             
         },

@@ -6,17 +6,18 @@ import { customTheme } from 'utilities/CustomTheme'
 
 
 
-
 function App() {
 
 
-    return  <React.Fragment>
-        <ThemeProvider value={customTheme}>
-            <div className='text-primary-black'>
-                <RouterProvider router={router} />
-            </div>
-        </ThemeProvider>
-    </React.Fragment>
+    return  (
+        <React.Fragment>
+            <ThemeProvider value={customTheme}>
+                <div className='text-primary-black'>
+                    <RouterProvider router={router} />
+                </div>
+            </ThemeProvider>
+        </React.Fragment>
+    )
   
 }
 

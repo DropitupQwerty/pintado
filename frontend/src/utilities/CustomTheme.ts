@@ -43,9 +43,6 @@ const InputTheme: InputStylesType = {
         shrink: false,
         className: '',
     },
-    styles: {
-     
-    }
 }
 
 

@@ -1,4 +1,6 @@
 import SampleImage from './sampleImage.jpg'
+import woodenFrame from './samplewoodenFrame.png'
+import metalFrame from './sampleMetalFrame.png'
 
 export const paintings = [
     {
@@ -14,6 +16,19 @@ export const paintings = [
         ],
         price: 2500, // Sample price in dollars
         canvasSize: '24" x 36"', // Sample canvas size
+        category: 'Post-Impressionism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 2,
@@ -23,11 +38,25 @@ export const paintings = [
         imageUrl: SampleImage,
         ratings: [
             { userId: 4, rating: 5, feedback: 'A true masterpiece!' },
+            { userId: 10, rating: 1, feedback: 'Tang inang item to!! Bulok!' },
             { userId: 5, rating: 4, feedback: 'Intriguing smile.' },
             { userId: 6, rating: 5, feedback: 'Absolutely stunning.' },
         ],
         price: 3500, // Sample price in dollars
         canvasSize: '30" x 40"', // Sample canvas size
+        category: 'Renaissance', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 3,
@@ -42,6 +71,19 @@ export const paintings = [
         ],
         price: 2800, // Sample price in dollars
         canvasSize: '22" x 28"', // Sample canvas size
+        category: 'Surrealism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Abstract',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Surreal',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 4,
@@ -56,6 +98,19 @@ export const paintings = [
         ],
         price: 2700, // Sample price in dollars
         canvasSize: '24" x 36"', // Sample canvas size
+        category: 'Post-Impressionism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 5,
@@ -70,6 +125,19 @@ export const paintings = [
         ],
         price: 2900, // Sample price in dollars
         canvasSize: '18" x 24"', // Sample canvas size
+        category: 'Expressionism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Expressionist',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Abstract',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 6,
@@ -84,6 +152,19 @@ export const paintings = [
         ],
         price: 3200, // Sample price in dollars
         canvasSize: '26" x 40"', // Sample canvas size
+        category: 'Renaissance', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 7,
@@ -98,6 +179,19 @@ export const paintings = [
         ],
         price: 3800, // Sample price in dollars
         canvasSize: '36" x 48"', // Sample canvas size
+        category: 'Cubism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Cubist',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Abstract',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 8,
@@ -112,6 +206,19 @@ export const paintings = [
         ],
         price: 3100, // Sample price in dollars
         canvasSize: '24" x 30"', // Sample canvas size
+        category: 'Baroque', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Baroque',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Classic',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 9,
@@ -126,6 +233,19 @@ export const paintings = [
         ],
         price: 3600, // Sample price in dollars
         canvasSize: '28" x 42"', // Sample canvas size
+        category: 'Renaissance', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 10,
@@ -140,6 +260,19 @@ export const paintings = [
         ],
         price: 2900, // Sample price in dollars
         canvasSize: '20" x 30"', // Sample canvas size
+        category: 'Regionalism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 11,
@@ -154,6 +287,19 @@ export const paintings = [
         ],
         price: 2700, // Sample price in dollars
         canvasSize: '24" x 36"', // Sample canvas size
+        category: 'Post-Impressionism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 12,
@@ -168,6 +314,19 @@ export const paintings = [
         ],
         price: 3200, // Sample price in dollars
         canvasSize: '26" x 32"', // Sample canvas size
+        category: 'Baroque', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Baroque',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Classic',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 13,
@@ -182,6 +341,19 @@ export const paintings = [
         ],
         price: 3800, // Sample price in dollars
         canvasSize: '30" x 40"', // Sample canvas size
+        category: 'Renaissance', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 14,
@@ -196,6 +368,19 @@ export const paintings = [
         ],
         price: 2900, // Sample price in dollars
         canvasSize: '24" x 48"', // Sample canvas size
+        category: 'Impressionism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Classic',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Modern',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
     {
         id: 15,
@@ -210,5 +395,23 @@ export const paintings = [
         ],
         price: 3100, // Sample price in dollars
         canvasSize: '28" x 36"', // Sample canvas size
+        category: 'Surrealism', // New category field
+        frameDesigns: [
+            {
+                frameMaterial: 'Wood',
+                frameType: 'Abstract',
+                frameImage: woodenFrame, // Updated with wooden frame image
+            },
+            {
+                frameMaterial: 'Metal',
+                frameType: 'Surreal',
+                frameImage: metalFrame, // Updated with metal frame image
+            },
+        ],
     },
+    
+    
+    
 ]
+
+export default paintings
