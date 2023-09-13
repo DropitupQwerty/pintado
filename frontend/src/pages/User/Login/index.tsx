@@ -19,7 +19,6 @@ export const Login = () => {
     const signInUser = async (data: LoginType) => {
         await LoginApi(data).then(async (user) => {
             if (user) {
-                localStorage.setItem('token', JSON.stringify(await user.getIdToken()))
                 localStorage.setItem('user', JSON.stringify(user))
                 setData(user)
                 window.location.replace('/')

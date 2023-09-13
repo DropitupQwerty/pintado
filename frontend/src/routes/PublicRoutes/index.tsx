@@ -1,25 +1,21 @@
 import React from 'react'
 import { RouteObject } from 'react-router-dom'
 import Container from './Container'
-
-
-import { Login } from 'pages/User/Login'
-import { Register } from 'pages/User/Register'
-
-
-
+import { UserError } from 'pages/ErrorPage/userError'
+import { Home } from 'pages/User/Home'
 
 
 export const PublicRoutes: RouteObject = {
     element: <Container />,
     children: [
         { 
-            path : '/login',
-            element : <Login/>
-        },       
+            path : '*',
+            element : <UserError/>
+        },            
         { 
-            path : '/register',
-            element : <Register/>
-        },       
+            path : '/',
+            element : <Home/>
+        },
+                  
     ],
 }
