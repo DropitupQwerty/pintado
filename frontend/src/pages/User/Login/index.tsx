@@ -5,6 +5,7 @@ import { LoginSchema, LoginType } from 'service/auth/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LoginApi } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
+import bgImage from 'assets/loginbg.jpg'
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -24,7 +25,7 @@ export const Login = () => {
     }
   
     return (
-        <div className={'min-h-full flex flex-col lg:justify-between w-full bg-[url(\'assets/loginbg.jpg\')] bg-cover '} >
+        <div className={'min-h-full flex flex-col lg:justify-between w-full'} style={{backgroundImage:`url(${bgImage})` , backgroundSize:'cover'}} >
             <div className=' m-10 text-white'>
                 <div>
                     <div className=''>Home / <span className="text-primary-red">Login</span></div>

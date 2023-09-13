@@ -56,8 +56,8 @@ export const ArtCategoriesMenu = () => {
                     </div>
                 </a>
             </MenuHandler>
-            <MenuList className=' text-lg ml-[2%] p-4 bg-primary-brown text-white border-none rounded-sm shadow-md'>
-                <div className='flex gap-4'>
+            <MenuList className=' text-lg ml-[2%] p-4 bg-primary-brown text-white rounded-sm shadow-md outline-none border-none'>
+                <div className='flex gap-4 outline-none border-none'>
                     {artCategoies.map((artCategory, index)=>
                         <div key={index} >
                             <div className='font-bold '>{artCategory.category}</div>
