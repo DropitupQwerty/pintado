@@ -26,8 +26,8 @@ export const Home = () => {
             <div className='h-full '>
                 <div className='h-full w-full justify-center lg:w-[90%] flex flex-wrap  mx-auto my-[2%] '>
                     {Items.map((item)=>
-                        <Card onClick={()=>navigate(`${item.author}/${item.category}/${item.id}`)}  key={item.id} className='max-h-[400px] my-1 rounded-none w-1/2  lg:w-1/3 xl:w-1/5  shadow-md p-0'>
-                            <CardHeader  floated={false}  className=' border  h-[200px] rounded-none m-[2%]'>
+                        <Card onClick={()=>navigate(`${item.author}/${item.category}/${item.id}`)}  key={item.id} className='max-h-[400px] my-1 w-1/2  lg:w-1/3 xl:w-1/5 rounded-md  shadow-md p-0'>
+                            <CardHeader  floated={false}  className=' border  h-[200px] rounded-md m-[2%]'>
                                 <img src={item.imageUrl} className='h-full w-full object-cover'/>
                             </CardHeader>
                             <CardBody className="">
