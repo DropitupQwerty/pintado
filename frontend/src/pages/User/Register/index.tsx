@@ -48,6 +48,10 @@ export const Register = () => {
     ]
 
 
+    
+    
+
+
 
 
     const { handleSubmit , control } = useForm<RegisterType>({
