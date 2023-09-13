@@ -23,4 +23,5 @@ export const LoginApi = (data : LoginType) => {
 export const Logout = () => {
     auth.signOut()
     localStorage.clear()
+    window.location.reload()
 }

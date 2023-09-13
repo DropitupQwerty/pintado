@@ -1,17 +1,14 @@
 import { AppNavigationBar } from 'components/AppNavigationbar'
 import React from 'react'
-
-type AppUserLayoutProps = {
-    children : React.ReactNode
-}
+import { Outlet } from 'react-router-dom'
 
 
-export const AppUserLayout = (props : AppUserLayoutProps) => {
+export const AppUserLayout = () => {
     return (
         <div className='h-screen relative flex flex-col '>
             <AppNavigationBar/>
             <div className='flex-1 '>
-                {props.children}
+                <Outlet/>
             </div>
         </div>
     )

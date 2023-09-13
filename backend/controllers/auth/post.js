@@ -1,7 +1,4 @@
-const { auth } = require('firebase-admin')
-const db = require('../../firebase/AdminSdk')
-const {clientAuth} = require('../../firebase/Client')
-
+const {db , auth } = require('../../firebase/AdminSdk');
 
 const RegisterUser = async (req, res) => {
     const data = req.body;
@@ -17,6 +14,7 @@ const RegisterUser = async (req, res) => {
       const firestoreResponse = await db.collection("Users").add({
         uid: userRecord.uid,
         email: userRecord.email,
+        userType : "user"
       });
   
       res.status(200).json({ message: "User registered successfully", docId: firestoreResponse.id });
@@ -27,12 +25,8 @@ const RegisterUser = async (req, res) => {
   };
 
 
-  const LoginUser = async (req,res) => { 
-    try {
-        clientAuth().
-    } catch (error) {
-        
-    }
-  }
-  
-  module.exports = { RegisterUser };
+
+
+
+
+  module.exports = { RegisterUser  };

@@ -1,4 +1,3 @@
-import { AppUserLayout } from 'components/AppUserLayout'
 import { paintings } from 'mockdata/images/HandMadeImages'
 import React from 'react'
 import { useParams } from 'react-router-dom'
@@ -8,21 +7,18 @@ import { AiFillStar ,AiOutlineStar } from 'react-icons/ai'
 
 export const Item = () => {
     const params = useParams()
-    const { itemId } = params
+    const { productId } = params
 
     //Query Here    
-    const product = React.useMemo(()=>paintings.find((p)=> itemId === p.id.toString()) ?? null, [])
-
-    console.log(product)
+    const product = React.useMemo(()=>paintings.find((p)=> productId === p.id.toString()) ?? null, [])
 
 
-    
 
 
     const ItemNotFound  = (
         <div className='flex justify-center items-center h-full'>
-            <div>
-                Item Not Found
+            <div className='text-3xl font-bold'>
+                Item not found
             </div>
         </div>
     )
@@ -108,10 +104,8 @@ export const Item = () => {
     
 
     return (
-        <AppUserLayout>
-            <div className='h-full container mx-auto'>
-                {product ? ItemData :ItemNotFound} 
-            </div>
-        </AppUserLayout>
+        <div className='h-full container mx-auto'>
+            {product ? ItemData :ItemNotFound} 
+        </div>
     )
 }

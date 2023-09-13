@@ -1,11 +1,18 @@
+import { AppUserLayout } from 'components/AppUserLayout'
 import React from 'react'
-import { Outlet } from 'react-router'
+import {  Navigate } from 'react-router-dom'
 
 const Container = () => {
 
-    return <>
-        <Outlet />
-    </>
+
+    const userToken = localStorage.getItem('token') 
+
+    if(userToken){
+        return  <Navigate to="/"/>
+    } 
+    
+    return <AppUserLayout/>
+
 
 }
 

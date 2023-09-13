@@ -4,8 +4,8 @@ import Container from './Container'
 
 
 import { Login } from 'pages/User/Login'
-import { Home } from 'pages/User/Home'
-import { Item } from 'pages/User/Item'
+import { Register } from 'pages/User/Register'
+
 
 
 
@@ -16,18 +16,10 @@ export const PublicRoutes: RouteObject = {
         { 
             path : '/login',
             element : <Login/>
-        },
+        },       
         { 
-            path : '/',
-            element : <Home/>
-        },
-        { 
-            path : '/test',
-            element : <div className='text-3xl font-bold'>Test</div>
-        },
-        { 
-            path : '/:itemId?',
-            element : <Item/>
-        },
+            path : '/register',
+            element : <Register/>
+        },       
     ],
 }
