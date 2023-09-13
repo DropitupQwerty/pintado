@@ -24,12 +24,12 @@ export const Login = () => {
     }
   
     return (
-        <div className='min-h-full flex flex-col lg:justify-between '>
-            <div className=' my-10'>
+        <div className={'min-h-full flex flex-col lg:justify-between w-full bg-[url(\'assets/loginbg.jpg\')] bg-cover '} >
+            <div className=' m-10 text-white'>
                 <div>
-                    <div className='text-center '>Home / <span className="text-primary-red">Login</span></div>
+                    <div className=''>Home / <span className="text-primary-red">Login</span></div>
                 </div>			
-                <div className='font-bold text-3xl text-center'>Sign In</div> :
+                <div className='font-bold text-3xl '>Sign In</div> 
             </div>
 
             <div className='flex gap-4 h-[50vh] lg:m-[2%]  flex-col lg:flex-row '>
@@ -42,7 +42,7 @@ export const Login = () => {
                                 field: { onChange, value, name },
                                 fieldState: { error },
                             }) => (
-                                <Input  label="Email" onChange={onChange} value={value} name={name}  crossOrigin={undefined}  error={!!error}/>
+                                <Input  label="Email" className='bg-white '  onChange={onChange} value={value} name={name}  crossOrigin={undefined}  error={!!error}/>
                             )}
                         />
                      
@@ -55,20 +55,20 @@ export const Login = () => {
                                 field: { onChange, value, name },
                                 fieldState: { error },
                             }) => (
-                                <Input  label="Password" type='password' onChange={onChange} value={value} name={name}  crossOrigin={undefined}  error={!!error}/>
+                                <Input  label="Password" className='bg-white' type='password' onChange={onChange} value={value} name={name}  crossOrigin={undefined}  error={!!error}/>
                             )}
                         />
                      
                     </div>
 
-                    <div className='flex items-center gap-4 justify-center  lg:flex-row flex-col lg:justify-normal'>
-                        <Button type='submit'>Sign In</Button>
+                    <div className='flex items-center gap-4 justify-center  flex-col lg:justify-normal'>
+                        <Button className='min-w-[200px]' type='submit'>Sign In</Button>
                         <div>
-                            <a className=''>Forgot your password?</a>
+                            <a className='text-white'>Forgot your password?</a>
                         </div>
                     </div>
                 </form>
-                <div className='p-[3%] w-full bg-secondary-white rounded-lg '>
+                <div className='p-[3%] w-full bg-secondary-white/80 backdrop-blur-md rounded-lg '>
                     <div className='text-xl lg:text-2xl'>New Customer?</div>
                     <div className='text-lg lg:text-xl'>Create an account with us and you&apos;ll be able to? : </div>
                     <div className='p-[3%]'>

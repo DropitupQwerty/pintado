@@ -11,6 +11,9 @@ export default withMT({
                 'primary-red' : '#E94444',
                 'secondary-red' : '#FAC0BF',
                 'primary-brown' : '#B56767',
+            },
+            fontFamily : {
+                'poppins' : ['Poppins', 'sans-serif']
             }
             
         },

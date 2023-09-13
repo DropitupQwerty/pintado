@@ -116,7 +116,7 @@ export const AppNavigationBar = () => {
                             )}
                         </div>
                         <div className='min-w-[150px]'>
-                            {user  ?  <Button className='w-full' onClick={()=>Logout()}>Logout</Button> : <Button className='w-full ' onClick={()=>navigate('/login')}>Login</Button>}
+                            {user  ?  <Button className='w-full' onClick={()=>Logout()}>Logout</Button> : <Button className='w-full ' onClick={()=>navigate('/login')}>Sign In</Button>}
                         </div>
                     </div>
                 </div>
