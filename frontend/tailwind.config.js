@@ -9,6 +9,7 @@ export default withMT({
                 'secondary-white' : '#E5E5E5',
                 'primary-black' : '#333',
                 'primary-red' : '#E94444',
+                'secondary-red' : '#FAC0BF',
                 'primary-brown' : '#B56767',
             }
             

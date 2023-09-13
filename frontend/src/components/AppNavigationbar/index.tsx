@@ -12,6 +12,7 @@ import {BsFillCartFill} from 'react-icons/bs'
 import {BiX} from 'react-icons/bi'
 import { Logout } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
+import { ArtCategoriesMenu } from 'components/AppNavigationbar/ArtCategoiesMenu'
   
 
 export const AppNavigationBar = () => {
@@ -34,7 +35,7 @@ export const AppNavigationBar = () => {
             href:'/',
         },
         {
-            label : 'Art Categories',
+            label : 'artCategories',
             href:'#',
         },
         {
@@ -50,6 +51,7 @@ export const AppNavigationBar = () => {
             href:'#',
         },
     ]
+
 
 
 
@@ -75,11 +77,11 @@ export const AppNavigationBar = () => {
     const NavList = (
         <ul className='flex flex-col lg:flex-row lg:gap-10 p-2 text-primary-black lg:text-white'>
             {
-                paths.map((path, index)=>
+                paths.map((path, index)=> path.label === 'artCategories' ? <ArtCategoriesMenu key={index}/> :
                     <li key={index}>
-                        <a className='text-sm'>
+                        <button className='text-sm' onClick={()=> navigate(path.href)} >
                             {path.label}  
-                        </a>
+                        </button>
                     </li>)
             }
 
@@ -99,7 +101,7 @@ export const AppNavigationBar = () => {
                 </div>
 
                 <div>
-                    <Input variant='static'  placeholder="Search" className='text-white placeholder:text-white min-w-[400px]' crossOrigin={undefined}/>
+                    <input className='bg-secondary-red rounded-lg placeholder:text-primary-black text-primary-black outline-none min-w-[500px] text-sm p-2' placeholder='Search'/>
                 </div>
                 <div className='flex items-center gap-4'>
 
@@ -107,15 +109,14 @@ export const AppNavigationBar = () => {
 
                     <div className='flex'>
                         <div className='flex items-center text-3xl mx-4'>
-                            {userAccess.map((userPath , index)=> 
+                            {userAccess.map((userPath , index)=>  
                                 <button key={index} className='bg-transparent' onClick={()=> navigate(`${userPath.href}`)}>
-                                    <div className='flex justify-center text-center border-r-2 px-3 '>{userPath.icon}</div>
-
+                                    <div className='flex justify-center text-center text-sm px-3 items-center'>{userPath.icon}<div className='text-sm mx-2'>{userPath.label}</div></div>
                                 </button>
                             )}
                         </div>
-                        <div className='min-w-[100px]'>
-                            {user  ?  <Button onClick={()=>Logout()}>Logout</Button> : <Button onClick={()=>navigate('/login')}>Login</Button>}
+                        <div className='min-w-[150px]'>
+                            {user  ?  <Button className='w-full' onClick={()=>Logout()}>Logout</Button> : <Button className='w-full ' onClick={()=>navigate('/login')}>Login</Button>}
                         </div>
                     </div>
                 </div>

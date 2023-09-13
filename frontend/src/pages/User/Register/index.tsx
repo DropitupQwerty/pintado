@@ -62,14 +62,14 @@ export const Register = () => {
 
 
     return (
-        <div className='h-full w-full flex flex-col justify-between'>
+        <div className='h-full w-full flex flex-col '>
             <div className='my-4'>
                 <div>
                     <div className='text-center '>Home / <span className="text-primary-red">Create New Account</span></div>
                 </div>			
                 <div className='font-bold text-3xl text-center'> New Account</div> :
             </div>
-            <div className=' flex justify-center flex-col items-center w-full'>
+            <div className=' flex justify-center flex-col items-center w-full h-full'>
                 <div className='w-full '>
                     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
                         <AppInputMap<RegisterType> fields={Fields} control={control} containerInputsClassName='gap-2 '/>
