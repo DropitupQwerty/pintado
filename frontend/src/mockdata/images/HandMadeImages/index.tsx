@@ -1,6 +1,6 @@
-import SampleImage from './sampleImage.jpg'
-import woodenFrame from './samplewoodenFrame.png'
-import metalFrame from './sampleMetalFrame.png'
+import SampleImage from 'mockdata/images/HandMadeImages/sampleImage.jpg'
+import woodenFrame from 'mockdata/images/HandMadeImages/samplewoodenFrame.png'
+import metalFrame from 'mockdata/images/HandMadeImages/sampleMetalFrame.png'
 
 export const paintings = [
     {
