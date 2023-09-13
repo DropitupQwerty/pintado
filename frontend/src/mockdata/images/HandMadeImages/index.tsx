@@ -1,5 +1,5 @@
 import SampleImage from 'mockdata/images/HandMadeImages/sampleImage.jpg'
-import woodenFrame from 'mockdata/images/HandMadeImages/samplewoodenFrame.png'
+import woodenFrame from 'mockdata/images/HandMadeImages/sampleWoodenFrame.png'
 import metalFrame from 'mockdata/images/HandMadeImages/sampleMetalFrame.png'
 
 export const paintings = [
