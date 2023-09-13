@@ -13,9 +13,12 @@ import {BiX} from 'react-icons/bi'
 import { Logout } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
 import { ArtCategoriesMenu } from 'components/AppNavigationbar/ArtCategoiesMenu'
+import { authAtom } from 'store/authAtom'
+import { useAtomValue } from 'jotai/react'
   
 
 export const AppNavigationBar = () => {
+    const auth = useAtomValue(authAtom)
     const [openNav, setOpenNav] = React.useState(false)
     const user = localStorage.getItem('token')
     const navigate = useNavigate()
@@ -27,6 +30,10 @@ export const AppNavigationBar = () => {
         )
     }, [])
 
+
+    console.log('====================================')
+    console.log(auth)
+    console.log('====================================')
 
 
     const paths = [

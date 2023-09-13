@@ -6,10 +6,12 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { LoginApi } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
 import bgImage from 'assets/loginbg.jpg'
+import { authAtom } from 'store/authAtom'
+import { useSetAtom } from 'jotai/react'
 
 export const Login = () => {
     const navigate = useNavigate()
-
+    const setData = useSetAtom(authAtom)
     const { control, handleSubmit } = useForm<LoginType>({
         resolver: zodResolver(LoginSchema),
     })
@@ -19,6 +21,7 @@ export const Login = () => {
             if (user) {
                 localStorage.setItem('token', JSON.stringify(await user.getIdToken()))
                 localStorage.setItem('user', JSON.stringify(user))
+                setData(user)
                 window.location.replace('/')
             }   
         })
