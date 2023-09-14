@@ -19,7 +19,7 @@ export const PrivateUserRoutes: RouteObject = {
             element : <Item/>
         },
         { 
-            path : 'purchase/:author/:category/:productId',
+            path : 'purchase-item/:author/:category/:productId',
             element : <Purchase/>
         },
         { 

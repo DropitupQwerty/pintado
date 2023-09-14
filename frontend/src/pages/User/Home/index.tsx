@@ -21,6 +21,7 @@ export const Home = () => {
 
     const Items =showMore ?  sampleItems : sampleItems.slice(0,10)
 
+
     return (
         <div className='h-full'>
             <div className='h-full '>

@@ -1,15 +1,15 @@
 import { paintings } from 'mockdata/images/HandMadeImages'
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Button , Rating } from '@material-tailwind/react'
 import { AiFillStar ,AiOutlineStar } from 'react-icons/ai'
 
 
 export const Item = () => {
+    const navigate = useNavigate()
     const params = useParams()
-    const { productId } = params
+    const { author , category , productId } = params
 
-    //Query Here    
     const product = React.useMemo(()=>paintings.find((p)=> productId === p.id.toString()) ?? null, [])
 
 
@@ -71,7 +71,7 @@ export const Item = () => {
 
                         <div className='flex  gap-2'>
                             <div className='flex gap-1'> 
-                                <Button className='min-w-[200px] '>Buy</Button>
+                                <Button className='min-w-[200px]' onClick={()=> navigate(`/purchase-item/${author +'/'+category+'/'+ productId}`)}>Buy</Button>
                             </div>
                             <div className=''> 
                                 <Button className='min-w-[200px] bg-primary-black'>Add to cart</Button>

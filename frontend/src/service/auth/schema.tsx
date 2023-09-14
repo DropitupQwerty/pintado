@@ -24,5 +24,6 @@ export const RegisterSchema = z.object({
     phoneNumber: z.string(),
 })
 
+
 export type LoginType = z.infer<typeof LoginSchema>
 export type RegisterType = z.infer<typeof RegisterSchema>

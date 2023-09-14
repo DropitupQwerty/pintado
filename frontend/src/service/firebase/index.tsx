@@ -1,0 +1,24 @@
+import { addDoc, doc, setDoc , collection } from 'firebase/firestore'
+import { db } from 'utilities/firebase'
+
+export const SetDocuments = async (collectionName : string , docId : string , data : object ) => { 
+
+    const response = await setDoc(doc(db, collectionName , docId), { 
+        data
+    })
+    return response
+}
+
+
+
+
+export const AddDocuments = async (collectionName : string , data : object ) => { 
+
+    const response = await addDoc(collection(db, collectionName), { 
+        data
+    })
+    return response
+}
+
+
+

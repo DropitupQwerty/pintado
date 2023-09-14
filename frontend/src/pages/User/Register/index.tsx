@@ -3,6 +3,7 @@ import { Button } from '@material-tailwind/react'
 import { AppInputMap } from 'components/AppInputTypes/AppInputMap'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { RegisterApi } from 'service/auth'
 import { RegisterSchema, RegisterType } from 'service/auth/schema'
 
 export const Register = () => {
@@ -48,8 +49,14 @@ export const Register = () => {
     ]
 
 
+
     
-    
+    const RegisterAccount = async (data : RegisterType) => {
+        const docData = await  RegisterApi(data)
+        console.log('====================================')
+        console.log(docData)
+        console.log('====================================')
+    } 
 
 
 
@@ -61,7 +68,7 @@ export const Register = () => {
 
     const onSubmit = (data : RegisterType ) => {
         console.log(data)
-        console.log('clicked')
+        RegisterAccount(data)
     }
 
 

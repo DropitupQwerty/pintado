@@ -109,7 +109,7 @@ export const AppNavigationBar = () => {
 
                     <div className='flex'>
                         <div className='flex items-center text-3xl mx-4'>
-                            {userAccess.map((userPath , index)=>  
+                            {userAccess.map((userPath , index)=> !user && userPath.label === 'User' ? '':
                                 <button key={index} className='bg-transparent' onClick={()=> navigate(`${userPath.href}`)}>
                                     <div className='flex justify-center text-center text-sm px-3 items-center'>{userPath.icon}<div className='text-sm mx-2'>{userPath.label}</div></div>
                                 </button>
