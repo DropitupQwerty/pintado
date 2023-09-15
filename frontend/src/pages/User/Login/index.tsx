@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import bgImage from 'assets/loginbg.jpg'
 import { authAtom } from 'store/authAtom'
 import { useSetAtom } from 'jotai/react'
-import { auth } from 'utilities/firebase'
+import { GetDocument } from 'service/firebase'
 
 export const Login = () => {
     const navigate = useNavigate()
@@ -18,13 +18,16 @@ export const Login = () => {
     })
   
     const signInUser = async (data: LoginType) => {
+     
         await LoginApi(data).then(async (user) => {
             if (user) {
-                localStorage.setItem('user', JSON.stringify(auth.currentUser))
-                setData(auth.currentUser)
-                window.location.replace('/')
+                const userData = await GetDocument('Users' , user.uid)
+                localStorage.setItem('token' , JSON.stringify(userData.data()))
+                setData(userData.data())
+                window.location.reload()
             }   
         })
+ 
     }
   
     return (

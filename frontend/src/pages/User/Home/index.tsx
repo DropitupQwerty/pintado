@@ -8,6 +8,7 @@ import {
 } from '@material-tailwind/react'
 import { useNavigate } from 'react-router-dom'
 
+
 export const Home = () => {
     const [showMore , setShowMore ] = React.useState(false)
     const navigate = useNavigate()
@@ -18,17 +19,16 @@ export const Home = () => {
         setShowMore(!showMore)
     }
 
-
     const Items =showMore ?  sampleItems : sampleItems.slice(0,10)
 
 
     return (
-        <div className='h-full'>
+        <div className='h-full '>
             <div className='h-full '>
                 <div className='h-full w-full justify-center lg:w-[90%] flex flex-wrap  mx-auto my-[2%] '>
                     {Items.map((item)=>
                         <Card onClick={()=>navigate(`${item.author}/${item.category}/${item.id}`)}  key={item.id} className='max-h-[400px] my-1 w-1/2  lg:w-1/3 xl:w-1/5 rounded-md  shadow-md p-0'>
-                            <CardHeader  floated={false}  className=' border  h-[200px] rounded-md m-[2%]'>
+                            <CardHeader  floated={false}  className=' border  h-[400px] rounded-md m-0'>
                                 <img src={item.imageUrl} className='h-full w-full object-cover'/>
                             </CardHeader>
                             <CardBody className="">

@@ -13,16 +13,16 @@ import {BiX} from 'react-icons/bi'
 import { Logout } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
 import { ArtCategoriesMenu } from 'components/AppNavigationbar/ArtCategoiesMenu'
-import logo from 'assets/pinatado5.png'  
+import logo from 'assets/pintadoLogo.png'  
 
 
 export const AppNavigationBar = () => {
-    // const auth = useAtomValue(authAtom)
     const [openNav, setOpenNav] = React.useState(false)
     const user = localStorage.getItem('token')
     const navigate = useNavigate()
- 
-    React.useEffect(() => {
+
+
+    React.useEffect( () => {
         window.addEventListener(
             'resize',
             () => window.innerWidth >= 960 && setOpenNav(false)
@@ -95,9 +95,9 @@ export const AppNavigationBar = () => {
 
     return (
         <Navbar className='text-white sticky top-0 border-none z-10 h-fit max-w-full rounded-none p-0'>
-            <div className='bg-primary-brown p-4 lg:flex justify-between hidden  items-center'>
+            <div className='bg-primary-brown p-2 lg:flex justify-between hidden  items-center'>
                 <a href='/' className='text-2xl font-bold lowercase'>
-                    <img src={logo} className='max-h-[60px]' alt="logo"/>
+                    <img src={logo} className='max-h-[100px] p' alt="logo"/>
                 </a>
 
                 <div>

@@ -50,25 +50,13 @@ export const Register = () => {
 
 
 
-    
-    const RegisterAccount = async (data : RegisterType) => {
-        const docData = await  RegisterApi(data)
-        console.log('====================================')
-        console.log(docData)
-        console.log('====================================')
-    } 
-
-
-
-
     const { handleSubmit , control } = useForm<RegisterType>({
         resolver:zodResolver(RegisterSchema)
     })
-
-
+    
+    
     const onSubmit = (data : RegisterType ) => {
-        console.log(data)
-        RegisterAccount(data)
+        RegisterApi(data)
     }
 
 

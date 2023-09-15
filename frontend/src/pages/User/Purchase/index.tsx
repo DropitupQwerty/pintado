@@ -45,7 +45,7 @@ export const Purchase = () => {
                             <div className='text-2xl'>{product?.title} - {product?.canvasSize} inch</div>
                             <hr/>
                             <div className='flex justify-between text-md my-4'>
-                                <div><div className='mb-2'>Price</div><div className='font-bold text-sm '>{product?.price}</div></div>
+                                <div><div className='mb-2'>Price</div><div className='font-bold text-sm '>₱ {product?.price}.00</div></div>
                                 <div>
                                     <div className='mb-2'>Quantity</div>
                                     <div className='flex items-center'>
@@ -55,14 +55,14 @@ export const Purchase = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className='w-[100px] text-end'><div className='mb-2 '>Total</div><div className=' text-sm font-bold'>{subtotal}</div></div>
+                                <div className='w-[100px] text-end'><div className='mb-2 '>Total</div><div className=' text-sm font-bold'>₱ {subtotal}.00</div></div>
                             </div>
                         </div>
                         <div className='flex flex-col items-end'>
                             <div className=' w-1/2 text-md'>
-                                <div className='flex justify-between gap-4'><div>Subtotal</div><div className='font-bold'>{subtotal}</div></div>
-                                <div className='flex justify-between gap-4'><div>Shipping Fee</div><div  className='font-bold'>{shippingFee}</div></div>
-                                <div className='flex justify-between gap-4'><div>Grand Total</div><div  className='font-bold'>{subtotal+shippingFee}</div></div>
+                                <div className='flex justify-between gap-4'><div>Subtotal</div><div className='font-bold'>₱ {subtotal}.00</div></div>
+                                <div className='flex justify-between gap-4'><div>Shipping Fee</div><div  className='font-bold'>₱ {shippingFee}.00</div></div>
+                                <div className='flex justify-between gap-4'><div>Grand Total</div><div  className='font-bold'>₱ {subtotal+shippingFee}.00</div></div>
                             </div>
                             <Button className='my-[2%]'>Check out</Button>
                         </div>

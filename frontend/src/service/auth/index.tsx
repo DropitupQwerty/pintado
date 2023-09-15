@@ -1,7 +1,7 @@
 import { User, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import { LoginType, RegisterType } from 'service/auth/schema'
-import { auth, db , } from 'utilities/firebase'
-import { doc, setDoc } from 'firebase/firestore' 
+import { auth } from 'utilities/firebase'
+import { SetDocuments } from 'service/firebase'
 
 
 
@@ -14,11 +14,8 @@ export const LoginApi = async (data : LoginType) => {
             return user
         })
         .catch((error) => {
-            const errorCode = error.code
             const errorMessage = error.message
-
-            console.log(errorCode)
-            console.log(errorMessage)
+            alert(errorMessage)
         })
 
 }
@@ -35,14 +32,12 @@ export const RegisterApi = async (data : RegisterType) => {
                 displayName: `${data.firstname} ${data.lastname}`,
             })
         }
-        
-        await setDoc(doc(db , 'Users'  , response.user.uid) , {
-            ...data , userType: 'user' ,userId  : response.user.uid
-        })
-
+        const userData = {...data , userType: 'user' , userId  : auth.currentUser ? auth.currentUser.uid :'' }        
+        await  SetDocuments('Users', response.user.uid , userData)
+        localStorage.setItem('token', JSON.stringify(userData))
+        window.location.reload()
 
     } catch (error) {
-        
         alert(error)
     }
 }

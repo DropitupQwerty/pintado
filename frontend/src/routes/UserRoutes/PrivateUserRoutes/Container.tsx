@@ -7,11 +7,11 @@ import { Navigate } from 'react-router-dom'
 const Container = () => {
     const auth = useAtomValue(authAtom)
 
-    if(!auth) {
-        return <Navigate to="login" replace={true}/>
+    if(auth?.userType ==='user') {
+        return <AppUserLayout/>
     }
+    return <Navigate to="login" />
     
-    return <AppUserLayout/>
 
 }
 
