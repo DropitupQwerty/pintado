@@ -38,14 +38,7 @@ export const AppNavigationBar = () => {
             label : 'artCategories',
             href:'#',
         },
-        {
-            label : 'Handmade Paintings',
-            href:'#',
-        },
-        {
-            label : 'Art Prints',
-            href:'#',
-        },
+
         {
             label : 'All',
             href:'#',

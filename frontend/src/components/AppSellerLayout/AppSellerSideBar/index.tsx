@@ -2,7 +2,7 @@ import React from 'react'
 import  logo  from 'assets/pintadoLogo.png'
 import { Logout } from 'service/auth'
 
-export const AppAdminSideBar = () => {
+export const AppSellerSideBar = () => {
     
 
     const NavPaths = [

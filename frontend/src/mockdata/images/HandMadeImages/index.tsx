@@ -1,6 +1,11 @@
-import SampleImage from 'mockdata/images/HandMadeImages/sampleImage.jpg'
-import woodenFrame from 'mockdata/images/HandMadeImages/sampleWoodenFrame.png'
-import metalFrame from 'mockdata/images/HandMadeImages/sampleMetalFrame.png'
+import SampleImage from 'mockdata/images/HandMadeImages/sampleImages/sampleImage.jpg'
+import woodenFrame from 'mockdata/images/HandMadeImages/sampleImages/sampleWoodenFrame.png'
+import metalFrame from 'mockdata/images/HandMadeImages/sampleImages/sampleMetalFrame.png'
+import Monalisa from 'mockdata/images/HandMadeImages/sampleImages/monalisa.jpg'
+import TheScream from 'mockdata/images/HandMadeImages/sampleImages/theScream.jpg'
+import StarryNight from 'mockdata/images/HandMadeImages/sampleImages/starryNight.jpg'
+import ThePersistenceofMemory from 'mockdata/images/HandMadeImages/sampleImages/ThePersistenceofMemory.jpg'
+import StarryNightOvertheRhône from 'mockdata/images/HandMadeImages/sampleImages/Starry_Night_Over_the_Rhone.jpg'
 
 export const paintings = [
     {
@@ -8,7 +13,7 @@ export const paintings = [
         title: 'Starry Night',
         description: 'A masterpiece of Post-Impressionist art, painted by Vincent van Gogh in 1889.',
         author: 'Vincent van Gogh',
-        imageUrl: SampleImage,
+        imageUrl: StarryNight,
         ratings: [
             { userId: 1, rating: 5, feedback: 'Beautiful artwork!' },
             { userId: 2, rating: 4, feedback: 'Love the colors.' },
@@ -35,7 +40,7 @@ export const paintings = [
         title: 'Mona Lisa',
         description: 'The iconic portrait of Lisa Gherardini, painted by Leonardo da Vinci between 1503 and 1506.',
         author: 'Leonardo da Vinci',
-        imageUrl: SampleImage,
+        imageUrl: Monalisa,
         ratings: [
             { userId: 4, rating: 5, feedback: 'A true masterpiece!' },
             { userId: 10, rating: 1, feedback: 'Tang inang item to!! Bulok!' },
@@ -63,7 +68,7 @@ export const paintings = [
         title: 'The Persistence of Memory',
         description: 'Salvador Dali\'s surreal masterpiece created in 1931, featuring melting clocks.',
         author: 'Salvador Dali',
-        imageUrl: SampleImage,
+        imageUrl: ThePersistenceofMemory,
         ratings: [
             { userId: 7, rating: 5, feedback: 'Mind-bending.' },
             { userId: 8, rating: 4, feedback: 'Unique and captivating.' },
@@ -90,7 +95,7 @@ export const paintings = [
         title: 'Starry Night Over the Rhône',
         description: 'Another stunning night sky painting by Vincent van Gogh, completed in 1888.',
         author: 'Vincent van Gogh',
-        imageUrl: SampleImage,
+        imageUrl: StarryNightOvertheRhône,
         ratings: [
             { userId: 10, rating: 4, feedback: 'Gorgeous night scene.' },
             { userId: 11, rating: 3, feedback: 'Good use of colors.' },
@@ -117,7 +122,7 @@ export const paintings = [
         title: 'The Scream',
         description: 'A famous expressionist painting by Edvard Munch, created in 1893.',
         author: 'Edvard Munch',
-        imageUrl: SampleImage,
+        imageUrl: TheScream,
         ratings: [
             { userId: 13, rating: 4, feedback: 'Emotional artwork.' },
             { userId: 14, rating: 5, feedback: 'Captures anxiety perfectly.' },

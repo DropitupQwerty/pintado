@@ -11,19 +11,23 @@ export const AppAdminSideBar = () => {
             href:'dashboard'
         },
         {
-            label: 'Users Management',
+            label: 'Users',
             href:'#'
         },
         {
-            label: 'Sellers Management',
+            label: 'Sellers',
             href:'#'
         },
         {
-            label: 'Account Settings',
+            label: 'Art Management',
             href:'#'
         },
         {
             label: 'Reports',
+            href:'#'
+        },
+        {
+            label: 'Account Settings',
             href:'#'
         },
     ]
