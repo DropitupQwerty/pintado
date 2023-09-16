@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { RegisterType } from 'service/auth/schema'
 
 export const Register = () => {
-    const [personalImage, setPersonalImage] = React.useState<Blob | null>( null)
+    const [, setPersonalImage] = React.useState<Blob | null>( null)
     const [previewPersonalImage , setPreviewPersonalImage] = React.useState<string>('')
     const [personalArts, setPersonalArts] = React.useState<Blob[] | null>(null)
     const [previewPersonalArts, setPreviewPersonalArts] = React.useState<string[]>([''])

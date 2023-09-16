@@ -9,7 +9,7 @@ export const Container = () => {
 
 
     if(auth) {
-        return <Navigate to={'/'}/>
+        return <Navigate to={'/seller'}/>
     }
 
     return <AppUserLayout/>

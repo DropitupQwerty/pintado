@@ -86,8 +86,9 @@ export const Login = () => {
                             <li>Track new orders</li>
                             <li>Save Items to your wish list</li>
                         </ul>
-                        <div className='text-center lg:text-start mt-5'>
+                        <div className='text-center  flex flex-col  max-w-[200px]  gap-4 lg:text-start mt-5 '>
                             <Button className='bg-primary-red ' onClick={()=> navigate('/register')}>Sign up</Button>
+                            <Button className='bg-primary-red ' onClick={()=> navigate('/seller/register')}>Sign up as seller</Button>
                         </div>
                     </div>
                 </div>
