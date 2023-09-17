@@ -23,6 +23,7 @@ export const ArtSchema = z.object({
     canvasSize: z.string(),
     category: z.string(),
     genre:z.string(),
+    approve: z.string().optional(),
     frameDesigns: z.array(frameDesignSchema).optional(),
 })
 

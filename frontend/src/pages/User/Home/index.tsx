@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useMemo} from 'react'
 import {
 
     Button,
@@ -14,14 +14,17 @@ export const Home = () => {
     const [showMore , setShowMore ] = React.useState(false)
     const [arts , setArts ] = React.useState<ArtType[]>()
 
+
     const getArts  = async ()=> {
-        const items = await GetCollectionDatas('Arts')
+        const items = await GetCollectionDatas('Arts')       
         setArts(items as ArtType[])
     }
 
 
     useEffect(()=>{getArts()},[])
+    const products= useMemo(()=> arts , [arts])
 
+    console.log(products)
     
 
 
@@ -29,14 +32,12 @@ export const Home = () => {
         setShowMore(!showMore)
     }
 
-
-
     return (
-        <div className='h-full bg-secondary-white'>
+        <div className='min-h-full bg-secondary-white'>
             <div className='h-full w-full  flex flex-wrap mx-auto justify-center cursor-pointer'>
              
 
-                {arts?.length ? arts.map((item, index) => (
+                {products?.length ? products.map((item, index) => (
                     <div
                         key={index}
                         onClick={()=>navigate(`${item.author + '/' + item.category+ '/' + item.id}`)}

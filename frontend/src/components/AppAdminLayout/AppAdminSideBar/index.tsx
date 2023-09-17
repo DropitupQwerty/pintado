@@ -1,9 +1,10 @@
 import React from 'react'
 import  logo  from 'assets/pintadoLogo.png'
 import { Logout } from 'service/auth'
+import { useNavigate } from 'react-router-dom'
 
 export const AppAdminSideBar = () => {
-    
+    const navigate = useNavigate()
 
     const NavPaths = [
         {
@@ -12,23 +13,23 @@ export const AppAdminSideBar = () => {
         },
         {
             label: 'Users',
-            href:'#'
+            href:'user'
         },
         {
             label: 'Sellers',
-            href:'#'
+            href:'seller'
         },
         {
             label: 'Art Management',
-            href:'#'
+            href:'art'
         },
         {
             label: 'Reports',
-            href:'#'
+            href:'reports'
         },
         {
             label: 'Account Settings',
-            href:'#'
+            href:'account-settings'
         },
     ]
 
@@ -46,7 +47,7 @@ export const AppAdminSideBar = () => {
                     {NavPaths.map((path , index)=> 
                         <div key={index}>
                             <div>
-                                <button className='text-lg text-start px-5 py-3 hover:bg-secondary-white w-full duration-300'>{path.label}</button>
+                                <button onClick={()=> navigate(`admin/${path.href}`)} className='text-lg text-start px-5 py-3 hover:bg-secondary-white w-full duration-300'>{path.label}</button>
                             </div>
                         </div>
                     

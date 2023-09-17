@@ -27,13 +27,9 @@ export const GetDocument = async (collection : string , docName : string ) => {
     return document
 }
 
-
-
-
-
 export const GetCollectionDatas = async (collectionName : string) => {
     
-    const artQuery  = query(collection(db , collectionName))
+    const artQuery  = query(collection(db , collectionName) )
     const artSnapshot = await getDocs(artQuery) 
     
     const Art : unknown[] = []
@@ -43,3 +39,4 @@ export const GetCollectionDatas = async (collectionName : string) => {
 
     return Art
 } 
+

@@ -68,8 +68,6 @@ export const UploadArt = () => {
 
 
 
-
-
     const uploadArtOnFirebase = async (data : AddArtType) => {
         
         const docRef =  await  AddDocuments('Arts' ,{...data, approved:false , uploadBy: auth?.userId})
@@ -83,11 +81,6 @@ export const UploadArt = () => {
             })
         }
     }
-
-
-
-
-
 
 
     const uploadPersonalArt = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -110,17 +103,18 @@ export const UploadArt = () => {
     }
 
 
-
-
-
-
     return (    
         <div className='min-h-full'>
             <div className='text-3xl font-bold text-center p-4 '> Sell Art</div>
             <div className='container mx-auto h-full'>
                 <div className=' flex gap-4 items-center h-full'>
                     <div className=' w-full'>
-                        <div className='border my-2 flex justify-center'><img className='  min-h-[400px] max-h-[500px] object-cover w-auto' src={previewImage}/></div>
+                        <div className='border my-2  min-h-[400px] max-h-[500px] flex justify-center'>
+                            { previewImage ? 
+                                <img className='object-cover w-auto' src={previewImage}/> : 
+                                <div className='flex items-center text-2xl font-bolsd'>Upload</div>
+                            }
+                        </div>
                         <label htmlFor='imagePersonal' className=''>
                             <div className='p-2 cursor-pointer  text-center rounded-full text-white uppercase font-normal bg-primary-red'>
                                     Upload Art
