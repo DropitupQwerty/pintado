@@ -1,29 +1,42 @@
-import { paintings } from 'mockdata/images/HandMadeImages'
-import React from 'react'
+import React, { useEffect} from 'react'
 import {
 
     Button,
 } from '@material-tailwind/react'
 import { twMerge } from 'tailwind-merge'
 import { useNavigate } from 'react-router-dom'
+import { GetCollectionDatas } from 'service/firebase'
+import { ArtType } from 'service/arts/schema'
 
 
 export const Home = () => {
     const navigate = useNavigate()
     const [showMore , setShowMore ] = React.useState(false)
-    const sampleItems = paintings
+    const [arts , setArts ] = React.useState<ArtType[]>()
+
+    const getArts  = async ()=> {
+        const items = await GetCollectionDatas('Arts')
+        setArts(items as ArtType[])
+    }
+
+
+    useEffect(()=>{getArts()},[])
+
+    
+
 
     const toggleShowMore = () => {
         setShowMore(!showMore)
     }
 
-    const Items =showMore ?  sampleItems : sampleItems.slice(0,10)
 
 
     return (
         <div className='h-full bg-secondary-white'>
             <div className='h-full w-full  flex flex-wrap mx-auto justify-center cursor-pointer'>
-                {Items.map((item, index) => (
+             
+
+                {arts?.length ? arts.map((item, index) => (
                     <div
                         key={index}
                         onClick={()=>navigate(`${item.author + '/' + item.category+ '/' + item.id}`)}
@@ -41,7 +54,7 @@ export const Home = () => {
                             </div>
                         </div>
                     </div>
-                ))}
+                )): null}
             </div>
             {!showMore ? 
                 <div className='flex justify-center '>

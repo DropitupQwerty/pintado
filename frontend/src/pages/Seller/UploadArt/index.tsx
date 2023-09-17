@@ -70,19 +70,18 @@ export const UploadArt = () => {
 
 
 
-    const uploadImage = async (data : AddArtType) => {
+    const uploadArtOnFirebase = async (data : AddArtType) => {
         
         const docRef =  await  AddDocuments('Arts' ,{...data, approved:false , uploadBy: auth?.userId})
 
         if(imageArt){
             await UploadSingleImage(imageArt , `${auth?.userId}/${data.title +' '+ docRef.id}` as string).then((url)=>{
                 if(url) {
-                    SetDocuments('Arts' ,`${docRef.id}`,{...data ,id:docRef.id ,  imageUrl: url , approved:false , uploadBy: auth?.userId , } , true)
+                    const docData ={...data ,id:docRef.id ,  imageUrl: url , approved:false , uploadBy: auth?.userId}
+                    SetDocuments('Arts' ,`${docRef.id}`,docData , true)
                 }
             })
         }
-
-
     }
 
 
@@ -106,11 +105,8 @@ export const UploadArt = () => {
     
     
     const onSubmit = async (data : AddArtType) => {
-        console.log(data)
 
-        // const url = await 
-        // console.log(url)
-        uploadImage(data)
+        uploadArtOnFirebase(data)
     }
 
 
@@ -124,10 +120,7 @@ export const UploadArt = () => {
             <div className='container mx-auto h-full'>
                 <div className=' flex gap-4 items-center h-full'>
                     <div className=' w-full'>
-
                         <div className='border my-2 flex justify-center'><img className='  min-h-[400px] max-h-[500px] object-cover w-auto' src={previewImage}/></div>
-
-
                         <label htmlFor='imagePersonal' className=''>
                             <div className='p-2 cursor-pointer  text-center rounded-full text-white uppercase font-normal bg-primary-red'>
                                     Upload Art

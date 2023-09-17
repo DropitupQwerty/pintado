@@ -1,19 +1,27 @@
-import { paintings } from 'mockdata/images/HandMadeImages'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button , Rating } from '@material-tailwind/react'
 import { AiFillStar ,AiOutlineStar } from 'react-icons/ai'
+import { GetDocument } from 'service/firebase'
+import { ArtType } from 'service/arts/schema'
 
 
 export const Item = () => {
     const navigate = useNavigate()
     const params = useParams()
     const { author , category , productId } = params
+    const [product , setProduct ] = React.useState<ArtType>()
 
-    const product = React.useMemo(()=>paintings.find((p)=> productId === p.id.toString()) ?? null, [])
+    React.useMemo( ()=>{
+        const GetProductById = async () =>{ 
+            await GetDocument('Arts' , productId ? productId : '').then((product)=> {
+                setProduct(product?.data() as ArtType)
+            })           
+        }
+        GetProductById()
+    }, [])
 
-
-
+    
 
     const ItemNotFound  = (
         <div className='flex justify-center items-center h-full'>
@@ -23,6 +31,7 @@ export const Item = () => {
         </div>
     )
 
+    
 
 
 
@@ -62,10 +71,10 @@ export const Item = () => {
                         <div className='my-4'>
                             <div>Select Frame </div>
                             <div className='flex'>
-                                {product?.frameDesigns.map((frameDesign, index)=>
+                                {/* {product?.frameDesigns.map((frameDesign, index)=>
                                     <button key={index} className='max-h-[90px] max-w-[90px] bg-primary-white target:border-primary-red open:border p-2'>
                                         <img src={frameDesign.frameImage} className='h-full w-full object-contain'></img>
-                                    </button>)}
+                                    </button>)} */}
                             </div>
                         </div>
 
@@ -85,7 +94,7 @@ export const Item = () => {
                 </div>
 
                 <div className='flex flex-col gap-4 my-4'>
-                    {product?.ratings.map((rating)=> <div className='bg-secondary-white min-h-[100px] max-h-[300px] p-[2%] border' key={rating.userId}>
+                    {/* {product?.ratings.map((rating)=> <div className='bg-secondary-white min-h-[100px] max-h-[300px] p-[2%] border' key={rating.userId}>
                         <div className='flex justify-between '>
                             <div className='font-bold'>Jacob Allen Valderama</div>
                             <div><Rating readonly  value={rating.rating}/></div>
@@ -93,7 +102,7 @@ export const Item = () => {
                         <div >
                             <div>{rating.feedback}</div>
                         </div>
-                    </div>)}
+                    </div>)} */}
                 </div>
 
             </div>
