@@ -1,3 +1,4 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Button } from '@material-tailwind/react'
 import { AppInputMap } from 'components/AppInputTypes/AppInputMap'
 import { useAtomValue } from 'jotai'
@@ -5,7 +6,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { AddDocuments, SetDocuments } from 'service/firebase'
 import { UploadSingleImage } from 'service/sellerArt'
-import { AddArtType } from 'service/sellerArt/schema'
+import { AddArtSchema, AddArtType } from 'service/sellerArt/schema'
 import { authAtom } from 'store/authAtom'
 
 
@@ -39,11 +40,6 @@ export const UploadArt = () => {
         {
             fields : [
                 {label: 'Canvas Size' , type : 'text' , name:'canvasSize'},
-            ]
-        },
-        {
-            fields : [
-                {label: 'Author' , type : 'text' , name:'author'},
             ]
         },
         {
@@ -94,25 +90,27 @@ export const UploadArt = () => {
 
 
     const { handleSubmit , control  } = useForm<AddArtType>({
+        resolver:zodResolver(AddArtSchema)
     })
     
     
     const onSubmit = async (data : AddArtType) => {
-
+        console.log('clicked')
+        
         uploadArtOnFirebase(data)
     }
 
 
     return (    
         <div className='min-h-full'>
-            <div className='text-3xl font-bold text-center p-4 '> Sell Art</div>
+            <div className='text-3xl font-bold text-center p-4 '> Sell your Canvas</div>
             <div className='container mx-auto h-full'>
                 <div className=' flex gap-4 items-center h-full'>
                     <div className=' w-full'>
-                        <div className='border my-2  min-h-[400px] max-h-[500px] flex justify-center'>
+                        <div className='border my-2  min-h-[400px] max-h-[500px] bg-secondary-white  flex justify-center'>
                             { previewImage ? 
                                 <img className='object-cover w-auto' src={previewImage}/> : 
-                                <div className='flex items-center text-2xl font-bolsd'>Upload</div>
+                                <div className='flex items-center text-2xl text-primary-red'>Upload personal Art</div>
                             }
                         </div>
                         <label htmlFor='imagePersonal' className=''>

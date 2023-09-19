@@ -2,11 +2,11 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Button , Rating } from '@material-tailwind/react'
 import { AiFillStar ,AiOutlineStar } from 'react-icons/ai'
-import { GetDocument } from 'service/firebase'
 import { ArtType } from 'service/arts/schema'
 import { AddItemsToCart } from 'service/cart'
 import { useAtomValue } from 'jotai'
 import { authAtom } from 'store/authAtom'
+import { getArtData } from 'service/arts'
 
 
 export const Item = () => {
@@ -18,9 +18,8 @@ export const Item = () => {
 
     React.useMemo( ()=>{
         const GetProductById = async () =>{ 
-            await GetDocument('Arts' , productId ? productId : '').then((product)=> {
-                setProduct(product?.data() as ArtType)
-            })           
+            const item = await getArtData(productId ? productId : '')
+            setProduct(item)
         }
         GetProductById()
     }, [])

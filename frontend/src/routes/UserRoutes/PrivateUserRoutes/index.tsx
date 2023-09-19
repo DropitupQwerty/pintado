@@ -33,7 +33,17 @@ export const PrivateUserRoutes: RouteObject = {
         },
         { 
             path : 'account-settings',
-            element : <AccountSettings/>
+            element : <AccountSettings/>,
+            children: [
+                {
+                    path: 'privacy',
+                    element:<>Password</>
+                },
+                {
+                    path: 'security',
+                    element:<>Security</>
+                },
+            ]
         },
     ],
 }

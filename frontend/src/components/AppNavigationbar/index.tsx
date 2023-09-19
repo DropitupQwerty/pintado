@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo } from 'react'
-import {AiFillHeart} from 'react-icons/ai'
 import {
     Navbar,
     Button,
@@ -51,7 +50,6 @@ export const AppNavigationBar = () => {
 
     const items = useMemo(()=>cartItems , [cartItems])
 
-    console.log(items)
     
 
     const paths = [
@@ -72,14 +70,26 @@ export const AppNavigationBar = () => {
 
 
 
-
-    const userAccess = [
+    const sellerAccountNavigation = [
         {
-            label : 'Favourites',
-            icon:<AiFillHeart/>,
-            href:'/favourites',
+            label: 'Dashboard',
+            href:'seller'
         },
+        {
+            label: 'Sell Arts',
+            href:'seller/upload'
+        },
+        {
+            label: 'My Arts',
+            href:'seller/upload'
+        },
+        {
+            label: 'Orders Status',
+            href:'seller/upload'
+        },
+
     ]
+
 
 
 
@@ -89,7 +99,7 @@ export const AppNavigationBar = () => {
             href:'/account-settings'
         },
         {
-            label: 'Track Orders',
+            label: 'Track My Orders',
             href:'/account-settings'
         },
         {
@@ -97,7 +107,7 @@ export const AppNavigationBar = () => {
             href:'/account-settings'
         },
         {
-            label: 'Cart',
+            label: 'View Cart',
             href:'/account-settings'
         },
     ]
@@ -143,10 +153,21 @@ export const AppNavigationBar = () => {
                                     <button className='flex justify-center text-center text-sm px-3 items-center'><FaUser/><div className='text-sm mx-2'>Account</div></button>
                                 </MenuHandler>
                                 <MenuList className='flex flex-col gap-4 min-w-[250px] max-w-[260px]'>
-                                    {user && <div className='p-2 font-bold w-full overflow-ellipsis whitespace-nowrap'>
-                                        { user?.firstname +' ' + user?.lastname}
-                                    </div>}
+
+                                    {user && 
+                                    <div className='p-2'>
+                                        <div className=' font-bold w-full overflow-ellipsis whitespace-nowrap'>
+                                            { user?.firstname +' ' + user?.lastname}
+                                        </div>
+                                        <div className='uppercase text-[8px] font-bold text-primary-white border rounded-full w-fit px-2 bg-primary-red'>{user.userType}</div>
+                                    </div>
+                                    }
+                                    { user?.userType === 'seller' && sellerAccountNavigation.map((item , index)=>
+                                        <MenuItem key={index} onClick={()=>navigate(item.href)}> {item.label}</MenuItem>
+                                    )}
+
                                     {user && AccountMenu.map((item , index)=> <MenuItem onClick={()=>navigate(item.href)} key={index}>{item.label}</MenuItem> )}
+
                                     <MenuItem className=' bg-primary-red text-white p-2 text-center hover:bg-primary-red/70 hover:text-white'>
                                         {user  ?  <div className='w-full' onClick={()=>Logout()}>Logout</div> :
                                             <div className='w-full ' onClick={()=>navigate('/login')}>Sign In / Sign Up</div>
@@ -157,17 +178,12 @@ export const AppNavigationBar = () => {
 
                             <button className='bg-transparent' onClick={()=> navigate('/cart')}>
                                 <div className='flex justify-center text-center text-sm px-3 items-center'><BsFillCartFill/><div className='text-sm mx-2 flex items-center gap-2'>
-                                    My Cart<div className='text-[11px] text-primary-red bg-white rounded-full p-1'>{cartItems.length}</div>
+                                    My Cart<div className='text-[11px] text-primary-red bg-white rounded-full p-1'>{items.length}</div>
                                 </div>
                                 </div>
                             </button>
 
 
-                            {userAccess.map((userPath , index)=> !user && userPath.label === 'User' ? '':
-                                <button key={index} className='bg-transparent' onClick={()=> navigate(`${userPath.href}`)}>
-                                    <div className='flex justify-center text-center text-sm px-3 items-center'>{userPath.icon}<div className='text-sm mx-2'>{userPath.label}</div></div>
-                                </button>
-                            )}
                         </div>
 
                     </div>
