@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo} from 'react'
-import {
+// import {
 
-    Button,
-} from '@material-tailwind/react'
+//     Button,
+// } from '@material-tailwind/react'
 import { twMerge } from 'tailwind-merge'
 import { useNavigate } from 'react-router-dom'
 import { GetCollectionDatas } from 'service/firebase'
@@ -11,25 +11,28 @@ import { ArtType } from 'service/arts/schema'
 
 export const Home = () => {
     const navigate = useNavigate()
-    const [showMore , setShowMore ] = React.useState(false)
+    // const [showMore , setShowMore ] = React.useState(false)
     const [arts , setArts ] = React.useState<ArtType[]>()
-
+    const [isLoading, setIsLoading] = React.useState(false)
 
     const getArts  = async ()=> {
+        setIsLoading(true)
         const items = await GetCollectionDatas('Arts')       
         setArts(items as ArtType[])
+        setIsLoading(false)
     }
 
 
-    useEffect(()=>{getArts()},[])
+    useEffect(()=>{
+        getArts()
+    },[])
     const products= useMemo(()=> arts , [arts])
 
     console.log(products)
     
 
-
-    const toggleShowMore = () => {
-        setShowMore(!showMore)
+    if(isLoading){
+        return <div>Isloading</div>
     }
 
     return (
@@ -57,11 +60,11 @@ export const Home = () => {
                     </div>
                 )): null}
             </div>
-            {!showMore ? 
+            {/* {!showMore ? 
                 <div className='flex justify-center '>
                     <Button onClick={toggleShowMore} className='rounded-full min-w-[200px] p-1' size='sm'>Show More</Button>
                 </div> : ''
-            } 
+            }  */}
         </div>
     )
 }

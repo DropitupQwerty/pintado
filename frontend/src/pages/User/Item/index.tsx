@@ -4,11 +4,15 @@ import { Button , Rating } from '@material-tailwind/react'
 import { AiFillStar ,AiOutlineStar } from 'react-icons/ai'
 import { GetDocument } from 'service/firebase'
 import { ArtType } from 'service/arts/schema'
+import { AddItemsToCart } from 'service/cart'
+import { useAtomValue } from 'jotai'
+import { authAtom } from 'store/authAtom'
 
 
 export const Item = () => {
     const navigate = useNavigate()
     const params = useParams()
+    const user = useAtomValue(authAtom)
     const { author , category , productId } = params
     const [product , setProduct ] = React.useState<ArtType>()
 
@@ -32,7 +36,11 @@ export const Item = () => {
     )
 
     
-
+    const AddToCart = ()=>{
+        if(user && product){
+            AddItemsToCart(user?.userId , product)
+        }
+    }
 
 
     const ItemData = (
@@ -42,22 +50,22 @@ export const Item = () => {
                 <div className='p-[2%]'>Home / Collection Art Prints  / <span className='text-primary-red'>{product?.title}</span></div>
                 <div className='flex gap-4'>
                     <div className=' max-w-[400px]'>
-                        <div className='mb-3  border '>
-                            <div className='flex min-h-[450px] bg-white'>
+                        <div className='mb-3  '>
+                            <div className='flex min-h-[450px] bg-secondary-white rounded-lg'>
                                 <img  className=" object-contain" src={product?.imageUrl}/>
                             </div>
                             <div>
                                 <div></div>
                             </div>
                         </div>
-                        <div className='bg-primary-brown p-2'>
+                        <div className='n p-2'>
                             <div className='font-bold text-lg'>Description :</div>
                             {product?.description}
                         </div>
                     </div>
                     <div className='p-[2%]'>
                         <div>
-                            <div className='text-2xl'>{product?.title} - {product?.canvasSize}</div>
+                            <div className='text-2xl my-4 font-semibold'>{product?.title} - {product?.canvasSize}</div>
                         </div>
                         <div>
                             <div className='text-md'>Size in centimeter- {product?.canvasSize}</div>
@@ -83,7 +91,7 @@ export const Item = () => {
                                 <Button className='min-w-[200px]' onClick={()=> navigate(`/purchase-item/${author +'/'+category+'/'+ productId}`)}>Buy</Button>
                             </div>
                             <div className=''> 
-                                <Button className='min-w-[200px] bg-primary-black'>Add to cart</Button>
+                                <Button className='min-w-[200px] bg-primary-black' onClick={AddToCart}>Add to cart</Button>
                             </div>
                         </div>
                     </div>
@@ -103,6 +111,9 @@ export const Item = () => {
                             <div>{rating.feedback}</div>
                         </div>
                     </div>)} */}
+                    <div className='w-full  '>
+                        <textarea className='border rounded-lg w-full p-4 max-h-[400px]  min-h-[100px] border-primary-red/20 outline-none' rows={4} placeholder='Leave a comment ...'></textarea>
+                    </div>
                 </div>
 
             </div>

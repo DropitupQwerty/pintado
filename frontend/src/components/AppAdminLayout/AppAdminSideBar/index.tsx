@@ -47,7 +47,7 @@ export const AppAdminSideBar = () => {
                     {NavPaths.map((path , index)=> 
                         <div key={index}>
                             <div>
-                                <button onClick={()=> navigate(`admin/${path.href}`)} className='text-lg text-start px-5 py-3 hover:bg-secondary-white w-full duration-300'>{path.label}</button>
+                                <button onClick={()=> navigate(`admin/${path.href}`)} className='text-sm text-start px-5 py-3 hover:bg-secondary-white w-full duration-300'>{path.label}</button>
                             </div>
                         </div>
                     
@@ -56,7 +56,7 @@ export const AppAdminSideBar = () => {
             </div>
             
             <div className='flex-1 h-full flex items-end' >
-                <button onClick={Logout} className='text-lg text-primary-red text-start px-5 py-3 hover:bg-secondary-white w-full duration-300 '>{'LOGOUT'}</button>
+                <button onClick={Logout} className=' text-primary-red text-start px-5 py-3 hover:bg-secondary-white w-full duration-300 '>{'LOGOUT'}</button>
             </div>
         </div>
     )

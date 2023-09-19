@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import {AiFillHeart} from 'react-icons/ai'
 import {
     Navbar,
     Button,
     IconButton,
     Input,
-    Collapse
+    Collapse,
+    Menu,
+    MenuHandler,
+    MenuList,
+    MenuItem
 } from '@material-tailwind/react'
 import {FaBars, FaUser} from 'react-icons/fa'
 import {BsFillCartFill} from 'react-icons/bs'
@@ -14,13 +18,19 @@ import { Logout } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
 import { ArtCategoriesMenu } from 'components/AppNavigationbar/ArtCategoiesMenu'
 import logo from 'assets/pintadoLogo.png'  
+import { atom, useAtom, useAtomValue } from 'jotai'
+import { authAtom } from 'store/authAtom'
+import { GetCollectionDatas } from 'service/firebase'
+import { ArtType } from 'service/arts/schema'
 
+const userCart = atom<ArtType[]>([])
 
 export const AppNavigationBar = () => {
     const [openNav, setOpenNav] = React.useState(false)
-    const user = localStorage.getItem('token')
+    const user = useAtomValue(authAtom)
     const navigate = useNavigate()
 
+    const [cartItems , setCartItems] = useAtom(userCart)
 
     React.useEffect( () => {
         window.addEventListener(
@@ -28,6 +38,21 @@ export const AppNavigationBar = () => {
             () => window.innerWidth >= 960 && setOpenNav(false)
         )
     }, [])
+
+
+
+    const GetAllCartItems = async () => {
+        const data = await GetCollectionDatas(`Users/${user?.userId}/cart`)
+        setCartItems(data as ArtType[])
+    }
+
+    
+    useEffect(()=>{GetAllCartItems()},[])
+
+    const items = useMemo(()=>cartItems , [cartItems])
+
+    console.log(items)
+    
 
     const paths = [
         {
@@ -50,19 +75,30 @@ export const AppNavigationBar = () => {
 
     const userAccess = [
         {
-            label : 'User',
-            icon: <FaUser />,
-            href:'/account',
-        },
-        {
             label : 'Favourites',
             icon:<AiFillHeart/>,
             href:'/favourites',
         },
+    ]
+
+
+
+    const AccountMenu = [
         {
-            label : 'Cart',
-            icon:<BsFillCartFill/>,
-            href:'/cart',
+            label: 'Account Settings',
+            href:'/account-settings'
+        },
+        {
+            label: 'Track Orders',
+            href:'/account-settings'
+        },
+        {
+            label: 'Favorites',
+            href:'/account-settings'
+        },
+        {
+            label: 'Cart',
+            href:'/account-settings'
         },
     ]
 
@@ -102,15 +138,38 @@ export const AppNavigationBar = () => {
 
                     <div className='flex'>
                         <div className='flex items-center text-3xl mx-4'>
+                            <Menu allowHover >
+                                <MenuHandler >
+                                    <button className='flex justify-center text-center text-sm px-3 items-center'><FaUser/><div className='text-sm mx-2'>Account</div></button>
+                                </MenuHandler>
+                                <MenuList className='flex flex-col gap-4 min-w-[250px] max-w-[260px]'>
+                                    {user && <div className='p-2 font-bold w-full overflow-ellipsis whitespace-nowrap'>
+                                        { user?.firstname +' ' + user?.lastname}
+                                    </div>}
+                                    {user && AccountMenu.map((item , index)=> <MenuItem onClick={()=>navigate(item.href)} key={index}>{item.label}</MenuItem> )}
+                                    <MenuItem className=' bg-primary-red text-white p-2 text-center hover:bg-primary-red/70 hover:text-white'>
+                                        {user  ?  <div className='w-full' onClick={()=>Logout()}>Logout</div> :
+                                            <div className='w-full ' onClick={()=>navigate('/login')}>Sign In / Sign Up</div>
+                                        }
+                                    </MenuItem>
+                                </MenuList>
+                            </Menu>
+
+                            <button className='bg-transparent' onClick={()=> navigate('/cart')}>
+                                <div className='flex justify-center text-center text-sm px-3 items-center'><BsFillCartFill/><div className='text-sm mx-2 flex items-center gap-2'>
+                                    My Cart<div className='text-[11px] text-primary-red bg-white rounded-full p-1'>{cartItems.length}</div>
+                                </div>
+                                </div>
+                            </button>
+
+
                             {userAccess.map((userPath , index)=> !user && userPath.label === 'User' ? '':
                                 <button key={index} className='bg-transparent' onClick={()=> navigate(`${userPath.href}`)}>
                                     <div className='flex justify-center text-center text-sm px-3 items-center'>{userPath.icon}<div className='text-sm mx-2'>{userPath.label}</div></div>
                                 </button>
                             )}
                         </div>
-                        <div className='min-w-[150px]'>
-                            {user  ?  <Button className='w-full' onClick={()=>Logout()}>Logout</Button> : <Button className='w-full ' onClick={()=>navigate('/login')}>Sign In</Button>}
-                        </div>
+
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import { Item } from 'pages/User/Item'
 import { ShoppingCart } from 'pages/User/ShoppingCart'
 import { Register } from 'pages/User/Register'
 import { Purchase } from 'pages/User/Purchase'
+import { AccountSettings } from 'pages/User/AccountSettings'
 
 
 
@@ -29,6 +30,10 @@ export const PrivateUserRoutes: RouteObject = {
         { 
             path : 'register',
             element : <Register/>
+        },
+        { 
+            path : 'account-settings',
+            element : <AccountSettings/>
         },
     ],
 }

@@ -7,7 +7,6 @@ export const ArtRequest = () => {
     const [art , setArt] = useState<ArtType[]>()
 
 
-
     const GetUnApprovedCollection = async () => { 
         const data =  await GetUnApprovedData()
         setArt(data as ArtType[])
@@ -21,13 +20,18 @@ export const ArtRequest = () => {
     const data = useMemo(()=> art ,[art])
 
 
+    if(!data) { 
+        return <div>
+            <h1>Page is loading</h1>
+        </div>
+    }
     
-    
+        
     return (
-        <div className='bg-white p-[4%]'>
+        <div className='bg-white p-[4%] rounded-xl'>
             <table className='w-full  bg-white rounded-lg overflow-hidden'>
-                <thead className='text-lg  bg-primary-red  text-white'>
-                    <th className='p-[1%] '>Preview</th>
+                <thead className='text-md  bg-primary-red  text-white'>
+                    <th className='p-[.5%] '>Preview</th>
                     <th>Author</th>
                     <th>Price</th>
                     <th>Description</th>
