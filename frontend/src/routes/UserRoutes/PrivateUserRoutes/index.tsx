@@ -8,6 +8,8 @@ import { ShoppingCart } from 'pages/User/ShoppingCart'
 import { Register } from 'pages/User/Register'
 import { Purchase } from 'pages/User/Purchase'
 import { AccountSettings } from 'pages/User/AccountSettings'
+import { PrivacySettings } from 'pages/User/AccountSettings/PrivacySettings'
+import { SecuritySettings } from 'pages/User/AccountSettings/SecuritySettings'
 
 
 
@@ -36,12 +38,12 @@ export const PrivateUserRoutes: RouteObject = {
             element : <AccountSettings/>,
             children: [
                 {
-                    path: 'privacy',
-                    element:<>Password</>
+                    path: '',
+                    element:<PrivacySettings/>
                 },
                 {
                     path: 'security',
-                    element:<>Security</>
+                    element:<SecuritySettings/>
                 },
             ]
         },

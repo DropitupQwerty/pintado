@@ -8,7 +8,7 @@ export const SideBar = () => {
     const NavList = [
         {
             label : 'Privacy',
-            href: 'privacy'
+            href: ''
         },
         {
             label : 'Security',
@@ -18,7 +18,7 @@ export const SideBar = () => {
 
 
     return (
-        <div className='max-w-[300px] h-screen bg-primary-white border'>
+        <div className='min-w-[300px]  bg-primary-white border'>
             <div className='flex flex-col '>
                 {NavList.map((item,index)=>
                     <button onClick={()=> navigate(item.href)} key={index} className='p-4 text-start  hover:bg-secondary-white m-2 rounded-xl'>

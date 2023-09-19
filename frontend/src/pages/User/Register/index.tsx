@@ -11,6 +11,11 @@ export const Register = () => {
     const Fields =  [
         {
             fields : [
+                {label: 'Username' ,  className:'w-[200px]' , type : 'text' , name:'username'},
+            ]
+        },
+        {
+            fields : [
                 {label: 'Email Address' , type : 'text' , name:'email'},
                 {label: 'Password' , type : 'password' , name:'password'}
             ]
@@ -61,14 +66,14 @@ export const Register = () => {
 
 
     return (
-        <div className='h-full w-full flex flex-col '>
+        <div className='h-full flex flex-col '>
             <div className='m-10'>
                 <div>
                     <div className=' '>Home / <span className="text-primary-red">Create New Account</span></div>
                 </div>			
                 <div className='font-bold text-3xl '> New Account</div> :
             </div>
-            <div className=' flex justify-center flex-col items-center w-full h-full p-[2%]'>
+            <div className='  container mx-auto flex justify-center flex-col items-center w-full h-full p-[2%]'>
                 <div className='w-full '>
                     <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
                         <AppInputMap<RegisterType> fields={Fields} control={control} containerInputsClassName='gap-2 '/>

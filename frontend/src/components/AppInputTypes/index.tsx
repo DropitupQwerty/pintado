@@ -1,7 +1,7 @@
 import React from 'react'
 import { fieldType } from 'types/inputFieldType'
 import { Controller, Control, FieldValues , Path } from 'react-hook-form'
-import { Input } from '@material-tailwind/react'
+import { Input, Textarea } from '@material-tailwind/react'
 import { twMerge } from 'tailwind-merge'
 
 
@@ -19,7 +19,10 @@ export const AppInputTypes = <T extends FieldValues> (props: AppInputTypeProps<T
                 control={props.control}
                 name={props.field.name as Path<T>}
                 render={({ field: { onChange, value, name }, fieldState: { error } }) => (
-                    <Input className={twMerge('w-full ',props.field.className)}  label={props.field.label} onChange={onChange} value={value} name={name as string}  crossOrigin={undefined}  error={!!error}/>
+                    <div className='flex-col flex '>
+                        <Input className={twMerge('w-full', props.field.className)}  label={props.field.label} onChange={onChange} value={value} name={name as string}  crossOrigin={undefined}  error={!!error}/>
+                        {error && <span className='text-primary-red text-[11px]'>{error?.message}</span>}
+                    </div>
                 )}
             />
         )
@@ -31,6 +34,17 @@ export const AppInputTypes = <T extends FieldValues> (props: AppInputTypeProps<T
                 name={props.field.name as Path<T>}
                 render={({ field: { onChange, value, name }, fieldState: { error } }) => (
                     <Input className={twMerge('w-full  ',props.field.className)}    label={props.field.label} onChange={onChange} type='password' value={value} name={name as string}  crossOrigin={undefined}  error={!!error}/>
+                )}
+            />
+        )
+    }
+    case 'textarea': {
+        return (
+            <Controller
+                control={props.control}
+                name={props.field.name as Path<T>}
+                render={({ field: { onChange, value, name }, fieldState: { error } }) => (
+                    <Textarea color='red'  className={twMerge('w-full  min-h-[100px] max-h-[300px]',props.field.className)}    label={props.field.label} onChange={onChange}  value={value} name={name as string}    error={!!error}/>
                 )}
             />
         )

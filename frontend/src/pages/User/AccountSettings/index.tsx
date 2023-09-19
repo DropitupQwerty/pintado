@@ -4,12 +4,9 @@ import { Outlet } from 'react-router-dom'
 
 export const AccountSettings = () => {
     return (
-        <div className='min-h-full border bg-secondary-white'>
-            <div className='h-full'>
-                <SideBar/>
-            </div>
-
-            <div className=''>
+        <div className='min-h-full flex border bg-secondary-white'>
+            <SideBar/>
+            <div className='m-4 bg-white w-full p-4 rounded-md shadow-md'>
                 <Outlet/>
             </div>
         </div>

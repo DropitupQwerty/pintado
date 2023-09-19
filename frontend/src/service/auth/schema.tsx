@@ -14,17 +14,18 @@ export const RegisterSchema = z.object({
     firstname: z.string(),
     lastname: z.string(),
     address1: z.string(),
-    address2: z.string(),
+    address2: z.string().optional(),
     suburbCity: z.string(),
     country: z.string(),
     province: z.string(),
     zipCode: z.string(),
     phoneNumber: z.string(),
+    username: z.string().optional()
 })
 
 export const UserTokenSchema = z.object({
     address1: z.string(),
-    address2: z.string(),
+    address2: z.string().optional(),
     confirmPassword: z.string(),
     country: z.string(),
     email: z.string().email(),

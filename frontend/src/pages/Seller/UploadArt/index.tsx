@@ -55,7 +55,7 @@ export const UploadArt = () => {
         },
         {
             fields : [
-                {label: 'Description' , type : 'text' , name:'description'}
+                {label: 'Description' , type : 'textarea' , name:'description'}
             ]
         },
 
