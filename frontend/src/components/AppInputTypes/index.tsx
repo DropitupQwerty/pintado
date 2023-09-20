@@ -13,29 +13,24 @@ type AppInputTypeProps<T extends FieldValues> = {
 export const AppInputTypes = <T extends FieldValues> (props: AppInputTypeProps<T>) => {
 
     switch (props.field.type) {
-    case 'text': {
+    case 'text' : 
+    case  'password' : {
         return (
             <Controller
                 control={props.control}
                 name={props.field.name as Path<T>}
                 render={({ field: { onChange, value, name }, fieldState: { error } }) => (
-                    <div className='flex-col flex '>
-                        <Input className={twMerge('w-full', props.field.className)}  label={props.field.label} onChange={onChange} value={value} name={name as string}  crossOrigin={undefined}  error={!!error}/>
+                    <div className={twMerge('flex-col flex ' , props.field.className)}>
+                        <Input className={twMerge('w-full')}  label={props.field.label} onChange={onChange} type={props.field.type} value={value} name={name as string}  crossOrigin={undefined}  error={!!error}/>
                         {error && <span className='text-primary-red text-[11px]'>{error?.message}</span>}
                     </div>
                 )}
             />
         )
     }
-    case 'password': {
+    case 'blank': {
         return (
-            <Controller
-                control={props.control}
-                name={props.field.name as Path<T>}
-                render={({ field: { onChange, value, name }, fieldState: { error } }) => (
-                    <Input className={twMerge('w-full  ',props.field.className)}    label={props.field.label} onChange={onChange} type='password' value={value} name={name as string}  crossOrigin={undefined}  error={!!error}/>
-                )}
-            />
+            <div className='w-full lg:block hidden'></div>
         )
     }
     case 'textarea': {

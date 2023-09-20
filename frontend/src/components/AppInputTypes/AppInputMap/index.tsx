@@ -17,7 +17,7 @@ export const AppInputMap =<T extends object> (props : AppInputMapProps<T>) => {
     return (
         <div className={twMerge(props.containerClassName)} >
             {props.fields.map((F, index)=> 
-                <div key={index} className={twMerge(' flex ' , props.containerFieldClassName)}>
+                <div key={index} className={twMerge(' flex  flex-col lg:flex-row' , props.containerFieldClassName)}>
                     {F.fields.map((f,index)=>
                         <div className={twMerge('w-full p-2' , props.containerInputsClassName)} key={index}>
                             <AppInputTypes<T>  field={f} control={props.control}/>

@@ -37,7 +37,6 @@ export const GetArtCollection = async () => {
     })
   
     const artData = await Promise.all(artPromises)
-    console.log('This is arts: ', artData)
   
     return artData
 }

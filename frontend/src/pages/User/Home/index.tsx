@@ -18,7 +18,6 @@ export const Home = () => {
     const getArts  = async ()=> {
         setIsLoading(true)
         const items = await GetArtCollection()      
-        console.log(items)
         setArts(items as ArtType[])
         setIsLoading(false)
     }
@@ -29,7 +28,6 @@ export const Home = () => {
     },[])
     const products= useMemo(()=> arts , [arts])
 
-    console.log(products)
     
 
     if(isLoading){
@@ -46,10 +44,10 @@ export const Home = () => {
                         key={index}
                         onClick={()=>navigate(`${item.author + '/' + item.category+ '/' + item.id}`)}
                         className={twMerge(
-                            ' w-auto relative flex items-center justify-center  m-1 h-[300px]',
+                            ' w-auto relative flex items-center justify-center  m-1 md:h-[300px]',
                         )}
                     >
-                        <img src={item.imageUrl} className='h-full w- object-cover' />
+                        <img src={item.imageUrl} className='h-full object-cover' />
                         <div className='h-full w-full text-center absolute flex items-center justify-center text-primary-white hover:opacity-100 opacity-0 transition-all duration-300 hover:bg-primary-black/70'>
                             <div className='w-full'>
                                 <div className='w-full overflow-ellipsis '>{item.title}</div>

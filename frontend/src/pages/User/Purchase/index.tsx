@@ -3,14 +3,23 @@ import paintings from 'mockdata/images/HandMadeImages'
 import React from 'react'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import { useParams } from 'react-router-dom'
+import { ArtType } from 'service/arts/schema'
+import { GetDocument } from 'service/firebase'
 
 export const Purchase = () => {
     const [quantity , setQuantity] = React.useState(1)
     const params = useParams()
     const { author , category , productId } = params
+    const [product , setProduct] = React.useState<ArtType | null>(null)
 
-    const product = React.useMemo(()=>paintings.find((p)=> productId === p.id.toString()) ?? null, [])
+    React.useMemo ( async ()=> {
+        
+        const item = await GetDocument('Arts' , productId ? productId : '') ?? null
+    
+        setProduct(item?.data() as ArtType)
+    }, [])
 
+    
 
     const toggleIncrement = () => { 
         setQuantity(quantity + 1)
