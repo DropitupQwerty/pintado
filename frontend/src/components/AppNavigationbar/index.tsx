@@ -16,7 +16,7 @@ import {BiX} from 'react-icons/bi'
 import { Logout } from 'service/auth'
 import { useNavigate } from 'react-router-dom'
 import { ArtCategoriesMenu } from 'components/AppNavigationbar/ArtCategoiesMenu'
-import logo from 'assets/pintadoLogo.png'  
+import logo from 'assets/pintado5whitetext.png'  
 import { atom, useAtom, useAtomValue } from 'jotai'
 import { authAtom } from 'store/authAtom'
 import { GetCollectionDatas } from 'service/firebase'
@@ -62,19 +62,15 @@ export const AppNavigationBar = () => {
             href:'#',
         },
 
-        {
-            label : 'All',
-            href:'#',
-        },
     ]
 
 
 
     const sellerAccountNavigation = [
-        {
-            label: 'Dashboard',
-            href:'seller'
-        },
+        // {
+        //     label: 'Dashboard',
+        //     href:'seller'
+        // },
         {
             label: 'Sell Arts',
             href:'seller/upload'
@@ -104,17 +100,17 @@ export const AppNavigationBar = () => {
         },
         {
             label: 'Favorites',
-            href:'/account-settings'
+            href:'/account-settings' 
         },
         {
             label: 'View Cart',
-            href:'/account-settings'
+            href:'/cart'
         },
     ]
 
 
     const NavList = (
-        <ul className='flex flex-col lg:flex-row lg:gap-10 p-2 text-primary-black lg:text-white'>
+        <ul className='flex flex-col lg:flex-row lg:gap-10 p-2 text-primary-black'>
             {
                 paths.map((path, index)=> path.label === 'artCategories' ? <ArtCategoriesMenu key={index}/> :
                     <li key={index}>
@@ -133,19 +129,17 @@ export const AppNavigationBar = () => {
 
 
     return (
-        <Navbar className='text-white sticky top-0 border-none z-10 h-fit max-w-full rounded-none p-0'>
-            <div className='bg-primary-brown p-2 lg:flex justify-between hidden  items-center'>
-                <a href='/' className='text-2xl font-bold lowercase'>
-                    <img src={logo} className='max-h-[100px] p' alt="logo"/>
+        <Navbar className=' sticky top-0 border-none z-10 h-fit max-w-full rounded-none p-0'>
+            <div className='bg-primary-brown p-4 lg:flex justify-between hidden  items-center'>
+                <a href='/' className='text-2xl font-bold '>
+                    {/* Pintado */}
+                    <img src={logo} className='max-h-[50px] p' alt="logo"/>
                 </a>
 
                 <div>
                     <input className='bg-secondary-red rounded-lg placeholder:text-primary-black text-primary-black outline-none min-w-[500px] text-sm p-2' placeholder='Search'/>
                 </div>
                 <div className='flex items-center gap-4'>
-
-    
-
                     <div className='flex'>
                         <div className='flex items-center text-3xl mx-4'>
                             <Menu allowHover >
@@ -159,9 +153,10 @@ export const AppNavigationBar = () => {
                                         <div className=' font-bold w-full overflow-ellipsis whitespace-nowrap'>
                                             { user?.firstname +' ' + user?.lastname}
                                         </div>
-                                        <div className='uppercase text-[8px] font-bold text-primary-white border rounded-full w-fit px-2 bg-primary-red'>{user.userType}</div>
+                                        <div className='uppercase text-[8px] font-bold bg-primary-red text-primary-white border rounded-full w-fit px-2 bg-primary'>{user.userType}</div>
                                     </div>
                                     }
+                                    <MenuItem  onClick={()=>navigate(`/profile/${user ? user.userId : ''}`)}> View Profile</MenuItem>
                                     { user?.userType === 'seller' && sellerAccountNavigation.map((item , index)=>
                                         <MenuItem key={index} onClick={()=>navigate(item.href)}> {item.label}</MenuItem>
                                     )}
@@ -191,7 +186,7 @@ export const AppNavigationBar = () => {
             </div>
           
             <div>
-                <div className=" hidden lg:block bg-primary-red">{NavList}</div>
+                <div className=" hidden lg:block">{NavList}</div>
             </div>
             <div className='flex w-full lg:hidden   items-center relative justify-center p-2'>
                 <IconButton
@@ -213,7 +208,7 @@ export const AppNavigationBar = () => {
 
             <Collapse open={openNav} >
                 {NavList}
-                <Button variant="gradient" size="sm" fullWidth className="">
+                <Button variant="gradient" size="sm" fullWidth className="text-white" onClick={()=>Logout()}>
                     <span>Logout</span>
                 </Button>
             </Collapse>

@@ -3,6 +3,7 @@ import { RouteObject } from 'react-router-dom'
 import Container from './Container'
 import { UserError } from 'pages/ErrorPage/UserError'
 import { Home } from 'pages/User/Home'
+import { Profile } from 'pages/User/Profile'
 
 
 export const PublicRoutes: RouteObject = {
@@ -15,6 +16,10 @@ export const PublicRoutes: RouteObject = {
         { 
             path : '/',
             element : <Home/>
+        },
+        { 
+            path : '/profile/:id',
+            element : <Profile/>
         },
                   
     ],

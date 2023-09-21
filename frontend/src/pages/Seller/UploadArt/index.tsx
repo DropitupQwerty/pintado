@@ -102,15 +102,18 @@ export const UploadArt = () => {
 
 
     return (    
-        <div className='min-h-full'>
-            <div className='text-3xl font-bold text-center p-4 '> Sell your Canvas</div>
+        <div className='min-h-full flex flex-col items-center justify-center'>
             <div className='container mx-auto h-full'>
-                <div className=' flex gap-4 items-center h-full'>
+                <div className='my-4'>
+                    <div className='text-3xl text-start '> Sell your Art</div>
+                    <p className='text-md text-start p-1 text-primary-red '> Only upload your personal art . Uploading copied image might cause of declining the image or banning of your account </p>
+                </div>
+                <div className=' flex gap-2 items-center h-full'>
                     <div className=' w-full'>
-                        <div className='border my-2  min-h-[400px] max-h-[500px] bg-secondary-white  flex justify-center'>
+                        <div className='border  my-4  min-h-[400px] max-h-[500px] bg-secondary-white  flex justify-center'>
                             { previewImage ? 
                                 <img className='object-cover w-auto' src={previewImage}/> : 
-                                <div className='flex items-center text-2xl text-primary-red'>Upload personal Art</div>
+                                <div className='flex items-center text-xl text-primary-black/50'>Upload Personal Art</div>
                             }
                         </div>
                         <label htmlFor='imagePersonal' className=''>

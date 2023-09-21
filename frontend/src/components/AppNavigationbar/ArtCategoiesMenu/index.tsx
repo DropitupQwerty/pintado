@@ -56,14 +56,14 @@ export const ArtCategoriesMenu = () => {
                     </div>
                 </a>
             </MenuHandler>
-            <MenuList className=' text-lg ml-[2%] p-4 bg-primary-brown text-white rounded-sm shadow-md outline-none border-none'>
-                <div className='flex gap-4 outline-none border-none'>
+            <MenuList className=' text-sm ml-[2%] p-4  rounded-sm shadow-md outline-none border-none'>
+                <div className='flex gap-5 outline-none border-none'>
                     {artCategoies.map((artCategory, index)=>
                         <div key={index} >
-                            <div className='font-bold '>{artCategory.category}</div>
-                            <ul className='flex flex-col gap-1 text-[16px]'>
+                            <div className='font-bold my-2'>{artCategory.category}</div>
+                            <ul className='flex flex-col gap-2 text-sm'>
                                 {artCategory.genres.map((genre , index)=>
-                                    <li key={index} className=''>
+                                    <li key={index} className='py-1'>
                                         <button  className='hover:underline duration-1000'>
                                             {genre}    
                                         </button>

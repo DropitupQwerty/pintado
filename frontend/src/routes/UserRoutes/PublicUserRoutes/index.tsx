@@ -18,6 +18,6 @@ export const PublicUserRoutes: RouteObject = {
         { 
             path : '/register',
             element : <Register/>
-        },       
+        },              
     ],
 }

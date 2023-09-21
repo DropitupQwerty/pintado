@@ -35,29 +35,31 @@ export const Home = () => {
     }
 
     return (
-        <div className='min-h-full bg-secondary-white'>
-            <div className='h-full w-full  flex flex-wrap mx-auto justify-center cursor-pointer'>
+        <div className='min-h-full mt-10'>
+            <div className='mx-auto container'>
+                <h1 className='text-xl'>Featured Collection</h1>
+                <div className='h-full w-full  flex flex-wrap  justify-center cursor-pointer '>
              
-
-                {products?.length ? products.map((item, index) => (
-                    <div
-                        key={index}
-                        onClick={()=>navigate(`${item.author + '/' + item.category+ '/' + item.id}`)}
-                        className={twMerge(
-                            ' w-auto relative flex items-center justify-center  m-1 md:h-[300px]',
-                        )}
-                    >
-                        <img src={item.imageUrl} className='h-full object-cover' />
-                        <div className='h-full w-full text-center absolute flex items-center justify-center text-primary-white hover:opacity-100 opacity-0 transition-all duration-300 hover:bg-primary-black/70'>
-                            <div className='w-full'>
-                                <div className='w-full overflow-ellipsis '>{item.title}</div>
-                                <div>Artist: <span className="text-primary-red">{item.author}</span></div>
-                                <div className='text-xl'>₱{item.price}</div>
-                                <div></div>
+                    {products?.length ? products.map((item, index) => (
+                        <div
+                            key={index}
+                            onClick={()=>navigate(`${item.author + '/' + item.category+ '/' + item.id}`)}
+                            className={twMerge(
+                                ' w-auto relative flex items-center justify-center  m-1 md:h-[250px]',
+                            )}
+                        >
+                            <img src={item.imageUrl} className='h-full object-cover' />
+                            <div className='h-full w-full text-center absolute flex items-center justify-center text-primary-white hover:opacity-100 opacity-0 transition-all duration-300 hover:bg-primary-black/70'>
+                                <div className='w-full'>
+                                    <div className='w-full overflow-ellipsis '>{item.title}</div>
+                                    <div>Artist: <span className="text-primary-red">{item.author}</span></div>
+                                    <div className='text-xl'>₱{item.price}</div>
+                                    <div></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )): null}
+                    )): null}
+                </div>
             </div>
             {/* {!showMore ? 
                 <div className='flex justify-center '>
