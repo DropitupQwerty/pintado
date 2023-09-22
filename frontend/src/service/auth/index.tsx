@@ -46,5 +46,5 @@ export const RegisterApi = async (data : RegisterType) => {
 export const Logout = () => {
     auth.signOut()
     localStorage.clear()
-    window.location.reload()
+    window.location.replace('/')
 }

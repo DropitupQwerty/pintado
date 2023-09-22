@@ -102,10 +102,10 @@ export const UploadArt = () => {
 
 
     return (    
-        <div className='min-h-full flex flex-col items-center justify-center'>
-            <div className='container mx-auto h-full'>
-                <div className='my-4'>
-                    <div className='text-3xl text-start '> Sell your Art</div>
+        <div className='h-full flex flex-col w-full items-center justify-center'>
+            <div className='container mx-auto '>
+                <div className=''>
+                    <div className='text-3xl text-start font-bold'> Sell your Art</div>
                     <p className='text-md text-start p-1 text-primary-red '> Only upload your personal art . Uploading copied image might cause of declining the image or banning of your account </p>
                 </div>
                 <div className=' flex gap-2 items-center h-full'>

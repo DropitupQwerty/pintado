@@ -66,26 +66,6 @@ export const AppNavigationBar = () => {
 
 
 
-    const sellerAccountNavigation = [
-        // {
-        //     label: 'Dashboard',
-        //     href:'seller'
-        // },
-        {
-            label: 'Sell Arts',
-            href:'seller/upload'
-        },
-        {
-            label: 'My Arts',
-            href:'seller/upload'
-        },
-        {
-            label: 'Orders Status',
-            href:'seller/upload'
-        },
-
-    ]
-
 
 
 
@@ -139,8 +119,8 @@ export const AppNavigationBar = () => {
                 <div>
                     <input className='bg-secondary-red rounded-lg placeholder:text-primary-black text-primary-black outline-none min-w-[500px] text-sm p-2' placeholder='Search'/>
                 </div>
-                <div className='flex items-center gap-4'>
-                    <div className='flex'>
+                <div className='flex items-center  gap-4'>
+                    <div className='flex  '>
                         <div className='flex items-center text-3xl mx-4'>
                             <Menu allowHover >
                                 <MenuHandler >
@@ -156,10 +136,7 @@ export const AppNavigationBar = () => {
                                         <div className='uppercase text-[8px] font-bold bg-primary-red text-primary-white border rounded-full w-fit px-2 bg-primary'>{user.userType}</div>
                                     </div>
                                     }
-                                    <MenuItem  onClick={()=>navigate(`/profile/${user ? user.userId : ''}`)}> View Profile</MenuItem>
-                                    { user?.userType === 'seller' && sellerAccountNavigation.map((item , index)=>
-                                        <MenuItem key={index} onClick={()=>navigate(item.href)}> {item.label}</MenuItem>
-                                    )}
+                                    {user && <MenuItem  onClick={()=>navigate(`/profile/${user ? user.userId : ''}`)}> View Profile</MenuItem>}
 
                                     {user && AccountMenu.map((item , index)=> <MenuItem onClick={()=>navigate(item.href)} key={index}>{item.label}</MenuItem> )}
 
@@ -186,7 +163,7 @@ export const AppNavigationBar = () => {
             </div>
           
             <div>
-                <div className=" hidden lg:block">{NavList}</div>
+                <div className=" hidden lg:flex">{NavList}</div>
             </div>
             <div className='flex w-full lg:hidden   items-center relative justify-center p-2'>
                 <IconButton

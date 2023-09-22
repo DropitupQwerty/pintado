@@ -1,4 +1,4 @@
-import { AppUserLayout } from 'components/AppUserLayout'
+import { AppSellerLayout } from 'components/AppSellerLayout'
 import { useAtomValue } from 'jotai'
 import React from 'react'
 import { Navigate } from 'react-router-dom'
@@ -8,7 +8,7 @@ export const Container = () => {
     const auth = useAtomValue(authAtom)
 
     if(auth?.userType === 'seller'  ) {
-        return  <AppUserLayout/>
+        return  <AppSellerLayout/>
     }
     return <Navigate to="/"/> 
 }

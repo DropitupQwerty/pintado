@@ -1,26 +1,33 @@
 import React from 'react'
-import  logo  from 'assets/pintadoLogo.png'
-import { Logout } from 'service/auth'
+// import  logo  from 'assets/pintadoLogo.png'
+// import { Logout } from 'service/auth'
+import { useNavigate } from 'react-router-dom'
 
 export const AppSellerSideBar = () => {
-    
+    const navigate = useNavigate()
 
     const NavPaths = [
         {
             label: 'Dashboard',
-            href:'dashboard'
+            href:'/seller'
+        },
+      
+        {
+            label: 'Manage Artworks',
+            href:'/seller/manage-artworks'
         },
         {
-            label: 'Users Management',
-            href:'#'
+            label: 'Manage Orders',
+            href:'/seller/manage-orders'
+        },
+    
+        {
+            label: 'Shipping',
+            href:'/seller/shipping'
         },
         {
-            label: 'Sellers Management',
-            href:'#'
-        },
-        {
-            label: 'Reports',
-            href:'#'
+            label: 'Account Settings',
+            href:'/seller/account-settings'
         },
     ]
 
@@ -29,16 +36,13 @@ export const AppSellerSideBar = () => {
 
     return (
         <div className='relative min-w-[300px]  min-h-full flex flex-col '>
-            <div className='flex justify-center'>
-                <img src={logo} className='max-h-[100px]'/>
-            </div>
         
             <div className='flex flex-col justify-between '>
-                <div >
+                <div className=' divide-y border-y' >
                     {NavPaths.map((path , index)=> 
                         <div key={index}>
                             <div>
-                                <button className='text-lg text-start px-5 py-3 hover:bg-secondary-white w-full duration-300'>{path.label}</button>
+                                <button onClick={()=> navigate(path.href)} className='text-sm text-start px-5 py-3 hover:bg-secondary-white w-full duration-300'>{path.label}</button>
                             </div>
                         </div>
                     
@@ -47,7 +51,7 @@ export const AppSellerSideBar = () => {
             </div>
             
             <div className='flex-1 h-full flex items-end' >
-                <button onClick={Logout} className='text-lg text-primary-red text-start px-5 py-3 hover:bg-secondary-white w-full duration-300 '>{'LOGOUT'}</button>
+                {/* <button onClick={Logout} className='text-lg text-primary-red text-start px-5 py-3 hover:bg-secondary-white w-full duration-300 '>{'LOGOUT'}</button> */}
             </div>
         </div>
     )

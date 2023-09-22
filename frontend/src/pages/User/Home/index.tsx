@@ -26,6 +26,7 @@ export const Home = () => {
     useEffect(()=>{
         getArts()
     },[])
+    
     const products= useMemo(()=> arts , [arts])
 
     
@@ -38,17 +39,17 @@ export const Home = () => {
         <div className='min-h-full mt-10'>
             <div className='mx-auto container'>
                 <h1 className='text-xl'>Featured Collection</h1>
-                <div className='h-full w-full  flex flex-wrap  justify-center cursor-pointer '>
+                <div className='h-full w-full  grid grid-cols-3 '>
              
                     {products?.length ? products.map((item, index) => (
                         <div
                             key={index}
                             onClick={()=>navigate(`${item.author + '/' + item.category+ '/' + item.id}`)}
                             className={twMerge(
-                                ' w-auto relative flex items-center justify-center  m-1 md:h-[250px]',
+                                ' w-auto relative flex items-center justify-center  m-1 md:', index == 0 && 'row-span-2 col-span-2'
                             )}
                         >
-                            <img src={item.imageUrl} className='h-full object-cover' />
+                            <img src={item.imageUrl} className='h-full w-full object-cover' />
                             <div className='h-full w-full text-center absolute flex items-center justify-center text-primary-white hover:opacity-100 opacity-0 transition-all duration-300 hover:bg-primary-black/70'>
                                 <div className='w-full'>
                                     <div className='w-full overflow-ellipsis '>{item.title}</div>
